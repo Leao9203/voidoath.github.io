@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://krau.top/"/>
-  <updated>2021-08-12T12:43:52.044Z</updated>
+  <updated>2021-08-13T02:04:42.031Z</updated>
   <id>http://krau.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ray-mmd制作法线贴图</title>
+    <link href="http://krau.top/mmdray3.html"/>
+    <id>http://krau.top/mmdray3.html</id>
+    <published>2021-08-13T00:59:08.000Z</published>
+    <updated>2021-08-13T02:04:42.031Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>如何使材质贴图更有层次感？</p><a id="more"></a><p>这就需要制作相应的<a href="https://zh.wikipedia.org/wiki/%E6%B3%95%E7%BA%BF%E8%B4%B4%E5%9B%BE" target="_blank" rel="noopener">法线贴图</a><br>本文以YYB式初音未来为例，制作相应的法线贴图，使用ray渲染的版本为1.5.2</p><hr><p>在制作法线贴图之前，首先要在MMD导入相应的模型，并完成ray渲染的基本流程，方便以下的对比操作，以寻找合适的参数。</p><p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813091507.png" alt="" loading="lazy"></p><p>在模型的目录中，找到需要制作的贴图，文件夹名一般为<code>Texture</code></p><p>然后使用ps导入贴图，选择滤镜&gt;3D&gt;生成法线图<br><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813093103.png" alt="" loading="lazy"></p><p>导出为png格式，文件名应是英文</p><p>在<code>~/ray-mmd-1.5.2/Materials</code>目录中，找到<code>material_2.0.fx</code>、<code>material_common_2.0.fxsub</code>两个文件，复制到模型目录中的材质贴图文件夹</p><p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813093713.png" alt="" loading="lazy"></p><p>然后重命名<code>material_2.0.fx</code>文件为<code>{你所导出的法线贴图的文件名}.fx</code></p><p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813094047.png" alt="" loading="lazy"></p><p>打开重命名后的该fx文件，在第28行左右找到<code>#define NORMAL_MAP_FROM 0</code>，将0修改为1以启用法线贴图。并更改<code>#define NORMAL_MAP_FILE &quot;normal.png&quot;</code>中的”normal”为法线贴图文件名</p><p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813094408.png" alt="" loading="lazy"></p><p>然后保存，在mmd中，在<code>MaterialMap</code>栏中，展开所修改的模型，找到对应的贴图，为其添加法线贴图效果</p><p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813094739.png" alt="" loading="lazy"></p><p>此时可以对照mmd中的效果调整fx文件中的参数，修改参数后保存文件，即可在mmd中预览到效果。</p><p>几个参数的作用：</p><ul><li><p>const float normalMapScale = 1.0;<br>法线效果强度，该参数越大，层次感越明显（下图为将该参数设置为5.0的效果）<br><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813095248.png" alt="" loading="lazy"></p></li><li><p>#define SMOOTHNESS_MAP_TYPE 0<br>法线效果平滑度，该参数越大，发现效果显示越平滑，同时颗粒感与湿润感也会更强（多用于场景）</p></li></ul><hr><p>tips：</p><ol><li>如果需要为同一模型的多个材质贴图添加法线贴图效果，只需要为每个法线贴图复制一个<code>material_2.0.fx</code>文件，并重命名为对应的文件名，而<code>material_common_2.0.fxsub</code>只在材质文件夹中保留一份即可</li><li>场景制作法线贴图与人物模型同理，但参数的调整与人物模型区别较大，需根据不同的需求进行尝试</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如何使材质贴图更有层次感？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="小技术" scheme="http://krau.top/categories/%E5%B0%8F%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="MMD" scheme="http://krau.top/tags/MMD/"/>
+    
+  </entry>
   
   <entry>
     <title>ray-mmd内置天空盒调整参数简介</title>
@@ -461,27 +484,6 @@
     
     
       <category term="ACG" scheme="http://krau.top/tags/ACG/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客更新日志2</title>
-    <link href="http://krau.top/bokegengxinrizhi2.html"/>
-    <id>http://krau.top/bokegengxinrizhi2.html</id>
-    <published>2020-07-05T13:01:42.000Z</published>
-    <updated>2020-07-05T13:23:37.465Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>又换皮了</p><a id="more"></a><ul><li>换了新主题~~原主题是<a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener">butterfly</a>,原主题之前的原主题是<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">matery</a></li></ul><p>为什么又换皮了？？</p><p><del>喜新厌旧了</del></p><ul><li>微微修改了一些文章</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;又换皮了&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="告示牌" scheme="http://krau.top/categories/%E5%91%8A%E7%A4%BA%E7%89%8C/"/>
-    
     
   </entry>
   
