@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>暑假总结（二度</title>
+    <url>/summerholiday3.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>今年七月份写了一篇<a href="https://krau.top/summerholiday2.html">再见，暑假。你好，高三。</a> ，然后就开学了。</p>
+<p>但是因为疫情原因又放假了，起初学校是打算让两个重点班的继续在校的，但是因为各种各样的原因，在8.4号也都离校了。在家上网课。</p>
+<p>今天又发了通知，让重点班的8.24返校（其实隔壁A班在今天就开学了），并且要求消息保密，也就是说其他班的仍不开学。那重点班就算是因为疫情暑假多放了20天。</p>
+<hr>
+<p>回来之后，稍作整顿，就喊上春某玩消逝的光芒DLC（信徒），也是支线能不做就不做，一口气通关主线。</p>
+<p>关于结局的选择，我当然不能向圣母妥协，于是就看到了那点题的光芒消逝的一刻。</p>
+<p>之后又陷入了游戏荒，让春某去找游戏玩。而我则加入了一个初音生贺的mmd合作。</p>
+<p>项目一共二十多个人，大多数人负责渲染制作，其他人则是负责后期和音乐调教工作。计划是8.24日前渲染工作结束，然后开始进行后期混剪，到8.31也就是初音生日那天投稿发布</p>
+<p>但毕竟水平欠佳，从8.12我加入项目开工，到8.18中午渲染导出，耗时整整一周。根据amd驱动软件的统计数据，净耗时约34小时<del>（应该写122400秒）</del>。 前后一共修改了21次，还经历了中途换模，和整体大改风格。但幸亏有大佬的保姆级帮助，最终的效果也算不错。这感觉真像是让一个小学毕业的去高考（</p>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210822120714.png" alt="" loading="lazy"></p>
+<blockquote>
+<p>定稿的借物:<br>Model:<br>つみだんご<br>Stage:<br>舞台&amp;场馆: 丶小忻/Dan1024<br>光束: まきがね<br>Motion:<br>Rick<br>Camera:<br>To_E<br>Tools:<br>MMD/MME/PR<br>MME:<br>Rui/そぼろ/化身バレッタ/サンドマン/そぼろ/ikeno</p>
+<p>Special thanks:<br>To_E/见子/残叶一落/爱吃瓜的茄子/悠闲的白面包片</p>
+</blockquote>
+<p>在制作期间，春某多次喊我一起玩传送门2，虽说也是间歇着玩了，但多数时候我都是婉拒<del>（沉迷mmd无法自拔</del>。完工之后就和他一起玩到了通关。作为一个可称得上经典的解密游戏，传送门2的关卡设计都相当不错，难度逐渐增高，有时候一关让我们烧脑几小时（比如主线关卡5-8），最终在不查攻略的情况下也能找到破解方法<del>（基本全是春某想出来的，我各种划水）</del>。总之体验不错。</p>
+<p>之后也没再玩其他游戏了，本来是打算玩生化危机6的，但是这也没时间了。这几天一直无所事事，一天到晚划水。</p>
+<p>追番还是八月疫情前的那几部，不过又补了 花开伊吕波，看了十几集没再看</p>
+<p>还看了个 女神宿舍的管理员<del>（没错就是那部肉番）</del>，能吐槽的地方挺多的</p>
+<p>前天给电脑装上了win11，本来还想通过玄学方法跳过tpm验证，结果进bios一看原来我的主板有tpm…感觉win11确实美观很多，就是貌似没什么新功能的样子，像一个美化版win10</p>
+<p>以下是一点时记</p>
+<hr>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210822155605.png" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210822155624.png" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210822155640.png" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210822155726.png" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210822155830.png" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210822155813.png" alt="" loading="lazy"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>ray-mmd制作法线贴图</title>
     <url>/mmdray3.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>如何使材质贴图更有层次感？</p>
