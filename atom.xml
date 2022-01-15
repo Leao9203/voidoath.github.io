@@ -38,32 +38,6 @@
   </entry>
   
   <entry>
-    <title>12.15日记</title>
-    <link href="http://krau.top/1215riji.html"/>
-    <id>http://krau.top/1215riji.html</id>
-    <published>2021-12-16T02:43:23.000Z</published>
-    <updated>2021-12-16T02:45:24.620Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>昨晚下午考试数学的时候开始头晕腰酸，我还以为是靠窗太阳晒+久坐导致的。晚上也吃不下去饭。一直到晚自习还是这样，挺到最后一节找来了温度计量了体温，39℃。<br>然后去找老师请假，一边写着请假条，一边听着老师和另一位同学家长的电话：“如果明天还是不舒服就别来考试了，身体健康最重要。”<br>于是我犹豫着把请假区间写到了15日晚上。<br>交给老师签字。<br>“明天不来考试了是吧”<br>我：“多写点，怕万一来不了”<br>“哼，多写点。<br>你就不能少写点，真要是撑不住了打电话再请。<br>干什么事都要少点骄气，你就是骄气太大。<br>家长不舍得让你吃苦，你也就没吃过苦。”<br>说完给我签好了字。<br>我昏昏沉沉地走出办公室，到门卫室给我妈打电话，在门卫室等了三十分钟左右。</p><p>在路上，对我妈说了老师的话，但没提那句“家长就不舍得让你吃苦……”，我妈则语重心长的告诉我这是因为考试很重要。<br>已经是临近十点，街边的卫生所都关门了，去医院怕被隔离，就去了一个有交情的医生家里。<br>打了一针，开了三四天的药。回家下了两包泡面，吃完药就睡了。<br>半夜出了一身冷汗，我妈来给我送了杯水。早上七点多才醒来，已经退烧了。<br>八点半开考，从老家八点多出门，路上我看着时间已经不够了，但我妈坚持让我去考试，因为考试很重要。</p><p>等我进班的时候，物理考试已经开考十几分钟了。把物理和下一场的生物都胡乱做完。中午我妈接我回家吃饭，下午英语考试又是开考了才进班。<br>考完六场，晚上学校又加练了一套理综小题。</p><p>这一天是怎么过去的我浑然不知，只只记得唯分数至上，唯考试为重的他们。<br>今晚放学，我妈打电话问我，明天要不要休息，我冷笑。<br>“考试都不让我休息，还谈什么明天呢”<br>“就是因为考试很重要，才不能休息”</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-    
-      <category term="日常" scheme="http://krau.top/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-      <category term="日记" scheme="http://krau.top/tags/%E6%97%A5%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>暑假总结（二度</title>
     <link href="http://krau.top/summerholiday3.html"/>
     <id>http://krau.top/summerholiday3.html</id>
@@ -476,6 +450,32 @@
     
     
       <category term="MMD" scheme="http://krau.top/tags/MMD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo设备迁移</title>
+    <link href="http://krau.top/hexoqianyi.html"/>
+    <id>http://krau.top/hexoqianyi.html</id>
+    <published>2020-07-15T03:06:26.000Z</published>
+    <updated>2020-07-16T00:32:11.134Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a><h2 id="网上方法参差不一，我直接简单粗暴法"><a href="#网上方法参差不一，我直接简单粗暴法" class="headerlink" title="网上方法参差不一，我直接简单粗暴法"></a>网上方法参差不一，我直接简单粗暴法</h2><ol><li><p>备份整个blog文件夹（可以事先清理一下垃圾文件以减小体积）</p></li><li><p>在新设备上安装 node.js 、npm、git</p></li><li><p>使用npm安装hexo</p></li><li><p>配置ssh密钥</p><p><code>ssh-keygen -t rsa -C &quot;example@email.com&quot;</code><br> 生成密钥后复制内容粘贴到代码托管网站的个人密钥设置中（github&gt;settings&gt;SSH and GPG keys&gt;New SSH key)</p></li><li><p>设置git全局身份</p><p> <code>git config --global user.name &quot;your user name&quot;</code></p><p> <code>git config --global user.email &quot;example@email.com&quot;</code></p></li><li><p>定位到备份下来的blog文件夹，执行hexo d部署尝试，可能会遇到以下错误提示：</p><p> “Warning: Permanently added the RSA host key for IP address ‘i.p.i.p’ to the list of known hosts.”</p><p> 并会询问是否仍要建立连接（yes/no）<br> 直接yes就完事</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="小技术" scheme="http://krau.top/categories/%E5%B0%8F%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="hexo" scheme="http://krau.top/tags/hexo/"/>
     
   </entry>
   
