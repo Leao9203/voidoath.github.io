@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://krau.top/"/>
-  <updated>2021-12-24T12:09:47.161Z</updated>
+  <updated>2022-01-25T02:58:04.884Z</updated>
   <id>http://krau.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>将旧手机通过Linuxdeploy改造为linux服务器|搭建cloudreve个人网盘|实现离线下载</title>
+    <link href="http://krau.top/jiushouji.html"/>
+    <id>http://krau.top/jiushouji.html</id>
+    <published>2022-01-24T11:34:31.000Z</published>
+    <updated>2022-01-25T02:58:04.884Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近因疫情闲在家，就折腾起了自己的旧手机</p><a id="more"></a><h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><ol><li>一部已经获得root权限的手机 <del>若是ov华等无法获取root的手机，建议拿去换盆</del> ，本文以redmi note7 pro为例，已刷机安卓11类原生</li><li>一台能够使用ssh终端的设备</li></ol><h1 id="安装linuxdeploy并配置"><a href="#安装linuxdeploy并配置" class="headerlink" title="安装linuxdeploy并配置"></a>安装linuxdeploy并配置</h1><p>下载<a href="https://github.com/meefik/linuxdeploy/releases" target="_blank" rel="noopener">linuxdeploy</a>，安装到旧手机</p><p><em>请确保安装的linuxdeploy版本≥2.0，否则需要首先安装busybox。而2.0以上的linuxdeploy内置了busybox</em></p><p>打开linuxdeploy软件，点击左上角按钮，选择设置，勾选【锁定wi-fi】与【CPU唤醒】，其他选项按需配置，亦可保持默认</p><p>回到上一级页面，点击右下角按钮，进行以下配置：</p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="引导设置"><a href="#引导设置" class="headerlink" title="引导设置"></a>引导设置</h3><ul><li><p>【发行版GNU/Linux】 建议选择Debian</p></li><li><p>【架构】一般都选择arm64，特殊情况请搜索关键词 ‘{你手机的cpu}+架构’</p></li><li><p>【发行版GNU/Linux版本】按需选择，一般选择buster或stable</p></li><li><p>【源地址】建议改为以下地址：<a href="http://mirrors.163.com/debian" target="_blank" rel="noopener">http://mirrors.163.com/debian</a> ，保持默认亦可</p></li><li><p>【安装类型】按需设置，建议选择镜像文件，因为它是一个单镜像文件</p></li><li><p>【安装路径】默认为<code>${EXTERNAL_STORAGE}/linux.img</code>，一般保持默认即可</p><blockquote><p>安装路径有一定要注意下，默认是 ${EXTERNAL_STORAGE}/linux.img，也就是外部储存，${ENV_DIR}则代表本机储存，有点坑在这里，因为所谓“内部”和“外部”并不是绝对的，和手机设置的默认储存位置有关，如果手机设置默认储存为本机的话，那么${EXTERNAL_STORAGE}其实代表的是安卓系统文件管理器能看到的目录的地址， ${ENV_DIR}代表的是安卓文件系统的内部地址，也就是root之后才能看到的那部分的目录（有点绕啊…）总之我想表达的是，最好使用绝对路径防止路径混乱，而绝对路径是从root之后的根目录算起的————博主<a href="https://blog.luvying.com/archives/linux-deploy" target="_blank" rel="noopener">ying</a>如是说</p></blockquote></li><li><p>【镜像大小】按需设置，若需搭建网盘服务，建议设置较大大小，可以使文件有足够的空间存储在linux镜像空间内，省去挂载手机存储的麻烦</p></li><li><p>【文件系统】ext4</p></li><li><p>【用户名】自行设置，建议设置为 root</p></li><li><p>【用户密码】自行设置</p></li><li><p>【特权用户】按需设置，一般保持默认</p></li><li><p>【本地化】简体中文选择zh_CN.UTF-8，按需设置</p></li><li><p>【DNS】按需设置，或保持默认</p></li></ul><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><ul><li>【启用】勾选以启用初始化功能</li><li>【初始化系统】选择sysv</li><li>【初始化设置】视情况设置，或保持默认</li></ul><h3 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h3><p>使用能够查看到真实路径的文件浏览器，复制需要挂载的目录到挂载点列表，填入第一行即可</p><h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><p>务必勾选启用SSH服务器，SSH设置按需配置</p><h3 id="声音服务"><a href="#声音服务" class="headerlink" title="声音服务"></a>声音服务</h3><p>按需配置</p><h3 id="图形界面"><a href="#图形界面" class="headerlink" title="图形界面"></a>图形界面</h3><p>按需配置</p><hr><p>配置完成后，返回上一级，点击右上角按钮，点击安装，等待出现<code>&lt;&lt;&lt; deploy</code>即安装完成。</p><p>点击停止按钮并确定，再点击启动，出现<code>&lt;&lt;&lt; start</code>即启动成功</p><p>然后即可使用同一局域网下的ssh工具连接<br>为了防止旧手机的内网ip地址变更，在路由设置页面进行ip与MAC绑定，并把手机wifi连接中的隐私设置相关选项改为 使用设备MAC</p><p>连接后，使用以下命令安装常用工具</p><p><code>apt install wget vim curl zip -y</code></p><p>附：<br>卸载命令<br><code>sudo apt-get --purge remove</code><br>xshell工具家庭/学校版下载连接<br><a href="https://www.xshell.com/zh/free-for-home-school/" target="_blank" rel="noopener">https://www.xshell.com/zh/free-for-home-school/</a></p><h1 id="安装并配置cloudreve"><a href="#安装并配置cloudreve" class="headerlink" title="安装并配置cloudreve"></a>安装并配置cloudreve</h1><p>项目发行地址：<a href="https://github.com/cloudreve/Cloudreve/releases" target="_blank" rel="noopener">cloudreve</a><br>截止到撰写本文（2022.01），最新版本为3.4.2</p><p>执行以下命令</p><p>切换到用户目录<br><code>cd /opt</code><br>创建文件夹并切换<br><code>mkdir cloudreve&amp;&amp;cd cloudreve</code><br>下载cloudreve<br><code>wget https://github.com/cloudreve/Cloudreve/releases/download/3.4.2/cloudreve_3.4.2_linux_arm64.tar.gz</code><br><em>根据需求自行选择下载的版本并替换wget后的链接</em></p><p>解压<br><code>tar -zxvf cloudreve_3.4.2_linux_arm64.tar.gz</code><br>赋予权限<br><code>chmod +x ./cloudreve</code><br>启动<br><code>./cloudreve</code></p><p>在终端中会给出出事管理员账号与密码，使用该账号登录http://{服务器内网ip}:{port(default is 5212)}<br>若无法访问，考虑配置防火墙开放端口</p><p>进入cloudreve后，点击右上角头像，进入管理面板，即可进行相关设置，具体参见<a href="https://docs.cloudreve.org/" target="_blank" rel="noopener">cloudreve官方文档</a></p><p><em>需要注意的是，在配置使用本机存储策略的用户组时，若存储目录在镜像空间内，要确保【初始容量】小于【镜像大小】，否则会无法上传任何文件</em></p><h1 id="通过aria2实现离线下载"><a href="#通过aria2实现离线下载" class="headerlink" title="通过aria2实现离线下载"></a>通过aria2实现离线下载</h1><p>cloudreve内置了依赖于aria2的离线下载功能，因此需先进行aria2的配置</p><h2 id="安装并配置aria2"><a href="#安装并配置aria2" class="headerlink" title="安装并配置aria2"></a>安装并配置aria2</h2><p>安装<br><code>apt install aria2 -y</code><br>下载由<a href="https://github.com/P3TERX" target="_blank" rel="noopener">P3TERX</a>提供的aria2配置文件（亦可选择其他配置或参考<a href="https://aria2.github.io/" target="_blank" rel="noopener">aria2官方文档</a>自行创建）<br><code>cdwget https://github.com/P3TERX/aria2.conf/archive/master.zip</code><br>将解压出的文件夹重命名为.aria2<br><code>mv aria2.conf-master .aria2</code><br>修改aria2配置文件<br><code>cd .aria2&amp;&amp;vim aria2.conf</code><br><a href="https://github.com/P3TERX" target="_blank" rel="noopener">P3TERX</a>的配置文件包含了中文注释，根据注释按需修改即可，一般需要改动的是<strong>下载目录</strong>、<strong>RPC密钥</strong>与<strong>BT监听端口</strong>，其他保持默认即可</p><p>配置修改完成后，在.aria2目录内，执行<code>./tracker.sh</code>即可更新tracker<br>若更新失败，可进行手动更新，参考以下tracker列表<br><a href="https://trackerslist.com/all_aria2.txt" target="_blank" rel="noopener">https://trackerslist.com/all_aria2.txt</a><br>将列表内容复制到<code>aria2.conf</code>中的<code>bt-tracker</code>参数后即可</p><p>创建aria2.session文件<br><code>touch aria2.session</code></p><p>测试aria2能否成功启动<br><code>aria2c --conf-path=/root/.aria2/aria2.conf</code><br>第一次启动需要指定配置文件，日后启动只需使用<code>aria2c</code>即可</p><p>若启动成功，关闭即可，接下来进行进程保护配置，方便后续操作</p><h2 id="保护cloudreve与aria2进程并设置自启动"><a href="#保护cloudreve与aria2进程并设置自启动" class="headerlink" title="保护cloudreve与aria2进程并设置自启动"></a>保护cloudreve与aria2进程并设置自启动</h2><p>cloudreve与aria2运行后，若关闭ssh终端，二者也会随之停止运行，因此需要进行进程守护，本文给出的方法是使用<code>supervisor</code></p><p>安装<br><code>apt install python-setuptools -yapt install supervisor -y</code></p><h3 id="保护cloudreve进程"><a href="#保护cloudreve进程" class="headerlink" title="保护cloudreve进程"></a>保护cloudreve进程</h3><p>为cloudreve创建配置并打开配置文件<br><code>sudo vim /etc/supervisor/conf.d/cloudreve.conf</code></p><p>将以下内容按需修改后，写入cloudreve的supervisor配置文件，具体参见<a href="http://supervisord.org/configuration.html" target="_blank" rel="noopener">supervisor官方文档</a></p><pre><code>[program:cloudreve]directory=/opt/cloudrevecommand=/opt/cloudreve/cloudreveautostart=trueautorestart=truestderr_logfile=/var/log/supervisor/cloudreve.errstdout_logfile=/var/log/supervisor/cloudreve.logenvironment=CODENATION_ENV=prod</code></pre><p>以上内容备注：<br>程序目录=/opt/cloudreve<br>运行命令(绝对路径)=/opt/cloudreve/cloudreve<br>自启动=true<br>自动重启=true<br>错误日志保存路径=<br>其他日志保存路径=<br>环境=</p><h3 id="保护aria2进程"><a href="#保护aria2进程" class="headerlink" title="保护aria2进程"></a>保护aria2进程</h3><p>与上同理，但为保证叙述清楚以及按需查阅，分别具体叙述<br>为aria2创建配置并打开配置文件<br><code>sudo vim /etc/supervisor/conf.d/aria2.conf</code><br>将以下内容按需修改后，写入aria2的supervisor配置文件，具体参见<a href="http://supervisord.org/configuration.html" target="_blank" rel="noopener">supervisor官方文档</a></p><pre><code>[program:aria2]directory=/root/.aria2command=aria2c --conf-path=/root/.aria2/aria2.confautostart=trueautorestart=truestderr_logfile=/var/log/supervisor/aria2.errstdout_logfile=/var/log/supervisor/aria2.logenvironment=CODENATION_ENV=prod</code></pre><p>以上内容备注：<br>程序目录=/root/.aria2<br>运行命令(绝对路径)=aria2c –conf-path=/root/.aria2/aria2.conf<br>自启动=true<br>自动重启=true<br>错误日志保存路径=<br>其他日志保存路径=<br>环境=</p><hr><p>启动supervisor<br><code>supervisord -c /etc/supervisor/supervisord.conf</code><br>至此便完成了进程守护配置<br>如需管理supervisor内进程，参考以下指令：</p><pre><code>启动    sudo supervisorctl start cloudreve停止    sudo supervisorctl stop cloudreve状态    sudo supervisorctl status cloudreve</code></pre><p>附.网页管理supervisor进程配置：<br>在supervisor配置文件中（/etc/supervisor/supervisord.conf），添加以下内容</p><pre><code>[inet_http_server]port=127.0.0.1:8888username=password=</code></pre><p>其中port、username、password参数可自行设置，若需外部访问，可将port设置为0.0.0.0:8888</p><h3 id="配置开机自启动"><a href="#配置开机自启动" class="headerlink" title="配置开机自启动"></a>配置开机自启动</h3><p>若在linuxdeploy中，初始化系统选择了sysv，则无需额外配置即可自启动supervisor及其中的程序<br>若使用run-parts初始化，需额外配置，自行查询不再赘述</p><h2 id="配置cloudreve离线下载功能"><a href="#配置cloudreve离线下载功能" class="headerlink" title="配置cloudreve离线下载功能"></a>配置cloudreve离线下载功能</h2><p>登录cloudreve管理页面，选择 离线下载节点 ，修改 主机（本机） 节点<br><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20220125103835.png" alt="" loading="lazy"></p><ol><li>启用离线下载</li><li>参考配置</li><li>RPC服务地址，由于cloudreve与aria2运行在同一台服务器（旧手机）上，故填写127.0.0.1:{prot}</li></ol><p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20220125103937.png" alt="" loading="lazy"><br>4. RPC令牌，与 Aria2 配置文件中rpc-secret保持一致<br>5. 临时下载目录，填写绝对路径，并保证cloudreve具有此目录的权限<br>6. 额外参数配置，一般保持默认</p><p>完成配置后，点击下一步，修改杂项信息，再点击下一步，即可保存该节点配置</p><p>然后点击用户组，编辑用户组配置，允许进行离线下载<br><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20220125104705.png" alt="" loading="lazy"></p><hr><p>至此，所有配置完成，可在同一局域网下，打开cloudreve页面测试是否成功实现了个人云盘与离线下载功能</p>]]></content>
+    
+    <summary type="html">
+    
+      何必拿去换盆换剪子（
+    
+    </summary>
+    
+    
+      <category term="小技术" scheme="http://krau.top/categories/%E5%B0%8F%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>忽驰骛以追逐兮，岂汝心之所急？</title>
@@ -450,32 +471,6 @@
     
     
       <category term="MMD" scheme="http://krau.top/tags/MMD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo设备迁移</title>
-    <link href="http://krau.top/hexoqianyi.html"/>
-    <id>http://krau.top/hexoqianyi.html</id>
-    <published>2020-07-15T03:06:26.000Z</published>
-    <updated>2020-07-16T00:32:11.134Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a><h2 id="网上方法参差不一，我直接简单粗暴法"><a href="#网上方法参差不一，我直接简单粗暴法" class="headerlink" title="网上方法参差不一，我直接简单粗暴法"></a>网上方法参差不一，我直接简单粗暴法</h2><ol><li><p>备份整个blog文件夹（可以事先清理一下垃圾文件以减小体积）</p></li><li><p>在新设备上安装 node.js 、npm、git</p></li><li><p>使用npm安装hexo</p></li><li><p>配置ssh密钥</p><p><code>ssh-keygen -t rsa -C &quot;example@email.com&quot;</code><br> 生成密钥后复制内容粘贴到代码托管网站的个人密钥设置中（github&gt;settings&gt;SSH and GPG keys&gt;New SSH key)</p></li><li><p>设置git全局身份</p><p> <code>git config --global user.name &quot;your user name&quot;</code></p><p> <code>git config --global user.email &quot;example@email.com&quot;</code></p></li><li><p>定位到备份下来的blog文件夹，执行hexo d部署尝试，可能会遇到以下错误提示：</p><p> “Warning: Permanently added the RSA host key for IP address ‘i.p.i.p’ to the list of known hosts.”</p><p> 并会询问是否仍要建立连接（yes/no）<br> 直接yes就完事</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-    
-      <category term="小技术" scheme="http://krau.top/categories/%E5%B0%8F%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="hexo" scheme="http://krau.top/tags/hexo/"/>
     
   </entry>
   
