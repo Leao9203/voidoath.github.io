@@ -15,9 +15,9 @@
 <p>打开linuxdeploy软件，点击左上角按钮，选择设置，勾选【锁定wi-fi】与【CPU唤醒】，其他选项按需配置，亦可保持默认</p>
 <p>回到上一级页面，点击右下角按钮，进行以下配置：</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="引导设置"><a href="#引导设置" class="headerlink" title="引导设置"></a>引导设置</h3><ul>
-<li><p>【发行版GNU/Linux】 建议选择Debian</p>
+<li><p>【发行版GNU/Linux】 建议选择Debian或centos，它们在linuxdeploy运行的兼容性更好</p>
 </li>
-<li><p>【架构】一般都选择arm64，特殊情况请搜索关键词 ‘{你手机的cpu}+架构’</p>
+<li><p>【架构】一般都选择arm64（Debian）或aarch64（centos），软件也会自动识别适合你的手机的架构，若特殊情况请搜索关键词 ‘{你手机的cpu}+架构’</p>
 </li>
 <li><p>【发行版GNU/Linux版本】按需选择，一般选择buster或stable</p>
 </li>
@@ -50,7 +50,7 @@
 <li>【初始化系统】选择sysv</li>
 <li>【初始化设置】视情况设置，或保持默认</li>
 </ul>
-<h3 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h3><p>使用能够查看到真实路径的文件浏览器，复制需要挂载的目录到挂载点列表，填入第一行即可</p>
+<h3 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h3><p>Source：手机目录<br>Target：Linux目录<br>使用能够查看到真实路径的文件浏览器，复制需要挂载的目录到挂载点列表，填入第一行即可</p>
 <h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><p>务必勾选启用SSH服务器，SSH设置按需配置</p>
 <h3 id="声音服务"><a href="#声音服务" class="headerlink" title="声音服务"></a>声音服务</h3><p>按需配置</p>
 <h3 id="图形界面"><a href="#图形界面" class="headerlink" title="图形界面"></a>图形界面</h3><p>按需配置</p>
