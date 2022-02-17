@@ -33,18 +33,18 @@ document.addEventListener("pjax:success", initScrollReveal);
 <p>为了探究这个问题，我和先自己一盘一盘的模拟了数局 <del>（人间迷惑行为</del> 然后又找到了谷歌娘一比高低，结果也算总结出了一点规律</p>
 <p><strong>以下 X 是先下者， O 是后者</strong></p>
 <h1 id="one"><a href="#one" class="headerlink" title="one"></a>one</h1><p>谷歌的井字棋游戏中有难度设定：‘简单’，‘中等’，‘非常难’。<br>先把难度设定为‘简单’，玩家作为先者（X方），下到中间格子，然后发现谷歌娘此时的出棋总是与中间格相邻的四个格子，而非四角上的格子</p>
-<p><img src="https://i.loli.net/2020/05/17/GUz1VkonijYbcIs.png" alt="" loading="lazy"></p>
+<p><img src="https://i.loli.net/2020/05/17/GUz1VkonijYbcIs.png" loading="lazy"></p>
 <p>对于这种情况，X 方非常容易能找到让对方进退两难的出棋，也就是不管对方如何封堵，自己总能有一条路胜利，如下图所示</p>
-<p><img src="https://i.loli.net/2020/05/17/WSPoQwlYp8J5D2E.png" alt="" loading="lazy"></p>
+<p><img src="https://i.loli.net/2020/05/17/WSPoQwlYp8J5D2E.png" loading="lazy"></p>
 <p>这样就算胜利了，因为对方不管是堵左上角还是右边都不行</p>
 <h1 id="two"><a href="#two" class="headerlink" title="two"></a>two</h1><p>接着，把难度设置为非常难（中等难度和简单难度的情况很相似，不再讨论）</p>
 <p>这时候，当X方下到中间后，与上一种情况相反，谷歌娘总是会下到四个角（尤其是左上角），而不下相邻的位置</p>
-<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200517171841.png" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200517171841.png" loading="lazy"></p>
 <p>这时候似乎很难按照前一种情况取胜。<br>于是，我和谷歌娘开始混战起来，<del>决心大战三百回合之后</del></p>
 <p>但也不是盲目的乱下一气，为了得出规律，我把我的第二次出棋按照从左到右，从上到下的顺序都下了一遍，结果每次都是平局。之后我便发现，这种情况的棋局数是很有限的。</p>
 <p>真的很有限，按照一定有规律的顺序，人为都能给它穷举出来（没错我真的这样搞了）</p>
 <p>如下图虚线分割线左边，便是对应这种情况的全部棋局</p>
-<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200517171101.jpg" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200517171101.jpg" loading="lazy"></p>
 <p>↑午休的时候迷迷糊糊画的为了催眠自己，辨识度可能很低</p>
 <p>全部可能的棋局数：22<br>平局数：20<br>O方胜出数：2<br>X方胜出数：0</p>
 <hr>

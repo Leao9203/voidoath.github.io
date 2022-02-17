@@ -30,11 +30,26 @@ document.addEventListener("pjax:success", initScrollReveal);
 </blockquote>
 <blockquote>
 <p>举一个简单的例子，大家都会下五子棋，我们就以开发一个五子棋的游戏来讲解面向过程和面向对象最本质的区别，在早期以面向过程为主要开发方法时，我们是这样来设计这个游戏的：</p>
-<p>1) 开始游戏<br>2) 黑方出子<br>3) 绘制画面<br>4) 判断胜负<br>5) 白方出子<br>6) 绘制画面<br>7) 判断胜负<br>8) 循环2、3、4、5、6、7步<br>9) 输出结果<br>最后将每一个步骤作为一个处理函数开发出来，每次运行都调用一遍函数(或者过程)。面向过程最关键的概念就是“过程”，所以程序运行都是一步接一步，从上往下。</p>
+<ol>
+<li>开始游戏</li>
+<li>黑方出子</li>
+<li>绘制画面</li>
+<li>判断胜负</li>
+<li>白方出子</li>
+<li>绘制画面</li>
+<li>判断胜负</li>
+<li>循环2、3、4、5、6、7步</li>
+<li>输出结果<br>最后将每一个步骤作为一个处理函数开发出来，每次运行都调用一遍函数(或者过程)。面向过程最关键的概念就是“过程”，所以程序运行都是一步接一步，从上往下。</li>
+</ol>
 </blockquote>
 <blockquote>
 <p>而面向对象的设计则是从另外的思路来解决问题。整个五子棋可以分为：</p>
-<p>1) 黑白双方：负责出子和悔棋<br>2) 棋盘系统：负责绘制画面<br>3) 规则系统：负责判定诸如犯规、输赢等<br>4) 输入输出系统：负责接收黑白子放的位置信息和输出游戏过程中的相关信息<br>这就是面向对象，更强调将程序模块化，我们甚至可以将该程序抽象出来使其适用于五子棋和围棋(它们除了规则不一样以外没有其它区别，那么我们只需要修改规则系统便可轻易支持围棋)。</p>
+<ol>
+<li>黑白双方：负责出子和悔棋</li>
+<li>棋盘系统：负责绘制画面</li>
+<li>规则系统：负责判定诸如犯规、输赢等</li>
+<li>输入输出系统：负责接收黑白子放的位置信息和输出游戏过程中的相关信息<br>这就是面向对象，更强调将程序模块化，我们甚至可以将该程序抽象出来使其适用于五子棋和围棋(它们除了规则不一样以外没有其它区别，那么我们只需要修改规则系统便可轻易支持围棋)。</li>
+</ol>
 </blockquote>
 <h1 id="类，实例和对象"><a href="#类，实例和对象" class="headerlink" title="类，实例和对象"></a>类，实例和对象</h1><h2 id="何谓’类’"><a href="#何谓’类’" class="headerlink" title="何谓’类’"></a>何谓’类’</h2><p>类(Class)，即一类东西<br>如’草’是一类东西，’鸟’也是一类东西<br>‘类’是抽象概念</p>
 <h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>实例(Instance)，即某个’类’中的具体的某个，如’张三家的布谷鸟’属于一个实例，’李华花园里的含羞草’也属于一个实例</p>
@@ -50,7 +65,8 @@ document.addEventListener("pjax:success", initScrollReveal);
     <span class="token comment" spellcheck="true">#↑定义类并绑定属性</span>
     <span class="token keyword">def</span> <span class="token function">say</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>word<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'{self.name} is human and can speak:{word}'</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true">#↑数据封装，称为‘类的方法’</span></code></pre>
+    <span class="token comment" spellcheck="true">#↑数据封装，称为‘类的方法’</span>
+</code></pre>
 <p>解释&amp;注意：</p>
 <ol>
 <li><code>__init__</code>前后是双下划线</li>
@@ -65,11 +81,14 @@ document.addEventListener("pjax:success", initScrollReveal);
 <span class="token comment" spellcheck="true">#这表示`zhangsan`是一个`Human`实例，`name`是‘张三’ `birth`是20990101， `sex` 是‘man’，`weight`为6</span>
 zhangsan<span class="token punctuation">.</span>say<span class="token punctuation">(</span><span class="token string">'hi!'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#调用 类的方法，其中为`word`传入的参数为`hi!`</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>zhangsan<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>zhangsan<span class="token punctuation">.</span>sex<span class="token punctuation">)</span></code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span>zhangsan<span class="token punctuation">.</span>sex<span class="token punctuation">)</span>
+</code></pre>
 <p>以上代码（包括定义类）的输出为：</p>
 <pre><code>zhangsan is human and can speak:hi!
 zhangsan
-man</code></pre><h1 id="小结-amp-参见"><a href="#小结-amp-参见" class="headerlink" title="小结&amp;参见"></a>小结&amp;参见</h1><blockquote>
+man
+</code></pre>
+<h1 id="小结-amp-参见"><a href="#小结-amp-参见" class="headerlink" title="小结&amp;参见"></a>小结&amp;参见</h1><blockquote>
 <p>类是创建实例的模板，而实例则是一个一个具体的对象，各个实例拥有的数据都互相独立，互不影响；<br>方法就是与实例绑定的函数，和普通函数不同，方法可以直接访问实例的数据；</p>
 </blockquote>
 <p>参见：<br><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017495723838528" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/1016959663602400/1017495723838528</a><br><a href="https://zhuanlan.zhihu.com/p/31251011" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/31251011</a></p>

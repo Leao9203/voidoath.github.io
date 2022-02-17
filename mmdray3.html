@@ -39,22 +39,22 @@ document.addEventListener("pjax:success", initScrollReveal);
 <p>这就需要制作相应的<a href="https://zh.wikipedia.org/wiki/%E6%B3%95%E7%BA%BF%E8%B4%B4%E5%9B%BE" target="_blank" rel="noopener">法线贴图</a><br>本文以YYB式初音未来为例，制作相应的法线贴图，使用ray渲染的版本为1.5.2</p>
 <hr>
 <p>在制作法线贴图之前，首先要在MMD导入相应的模型，并完成ray渲染的基本流程，方便以下的对比操作，以寻找合适的参数。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813091507.png" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813091507.png" loading="lazy"></p>
 <p>在模型的目录中，找到需要制作的贴图，文件夹名一般为<code>Texture</code></p>
-<p>然后使用ps导入贴图，选择滤镜&gt;3D&gt;生成法线图<br><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813093103.png" alt="" loading="lazy"></p>
+<p>然后使用ps导入贴图，选择滤镜&gt;3D&gt;生成法线图<br><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813093103.png" loading="lazy"></p>
 <p>导出为png格式，文件名应是英文</p>
 <p>在<code>~/ray-mmd-1.5.2/Materials</code>目录中，找到<code>material_2.0.fx</code>、<code>material_common_2.0.fxsub</code>两个文件，复制到模型目录中的材质贴图文件夹</p>
-<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813093713.png" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813093713.png" loading="lazy"></p>
 <p>然后重命名<code>material_2.0.fx</code>文件为<code>{你所导出的法线贴图的文件名}.fx</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813094047.png" alt="" loading="lazy"></p>
-<p>打开重命名后的该fx文件，在第28行左右找到<code>#define NORMAL_MAP_FROM 0</code>，将0修改为1以启用法线贴图。并更改<code>#define NORMAL_MAP_FILE &quot;normal.png&quot;</code>中的”normal”为法线贴图文件名</p>
-<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813094408.png" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813094047.png" loading="lazy"></p>
+<p>打开重命名后的该fx文件，在第28行左右找到<code>#define NORMAL_MAP_FROM 0</code>，将0修改为1以启用法线贴图。并更改<code>#define NORMAL_MAP_FILE &quot;normal.png&quot; </code>中的”normal”为法线贴图文件名</p>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813094408.png" loading="lazy"></p>
 <p>然后保存，在mmd中，在<code>MaterialMap</code>栏中，展开所修改的模型，找到对应的贴图，为其添加法线贴图效果</p>
-<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813094739.png" alt="" loading="lazy"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813094739.png" loading="lazy"></p>
 <p>此时可以对照mmd中的效果调整fx文件中的参数，修改参数后保存文件，即可在mmd中预览到效果。</p>
 <p>几个参数的作用：</p>
 <ul>
-<li><p>const float normalMapScale = 1.0;<br>法线效果强度，该参数越大，层次感越明显（下图为将该参数设置为5.0的效果）<br><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813095248.png" alt="" loading="lazy"></p>
+<li><p>const float normalMapScale &#x3D; 1.0;<br>法线效果强度，该参数越大，层次感越明显（下图为将该参数设置为5.0的效果）<br><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813095248.png" loading="lazy"></p>
 </li>
 <li><p>#define SMOOTHNESS_MAP_TYPE 0<br>法线效果平滑度，该参数越大，发现效果显示越平滑，同时颗粒感与湿润感也会更强（多用于场景）</p>
 </li>
