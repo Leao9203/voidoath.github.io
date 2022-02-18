@@ -4,7 +4,7 @@
     <title>柯罗传·娱游</title>
     <url>/zichuan.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>余名曰柯罗krau，自以真名谐音取之。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p><strong>作于二零二一年四月二十一日</strong></p>
 <p>余幼时即好玩乐，尤善电子游戏。四岁能用手机，无师自通。六岁修理疑难杂症，乡里莫不知。七岁借父诺基亚与人聊，或帮回消息，能辨吾为小孩者鲜有之。若辨，未尝不矍然惊叹。诺基亚者，数年前按键机也，与今者比之，屏小，内存甚小。彼时流量又甚少，多为30M，月资5元，然足以玩乐。尝玩经典游戏甚多，如若《钻石狂潮》、《口袋妖怪》、《蜡笔小新》，下载于qq游戏中心，多为盗版搬运，未曾计较。</p>
@@ -33,13 +33,13 @@
     <title>将旧手机通过Linuxdeploy改造为linux服务器|搭建cloudreve个人网盘|实现离线下载</title>
     <url>/jiushouji.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近因疫情闲在家，就折腾起了自己的旧手机</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><ol>
 <li>一部已经获得root权限的手机 <del>若是ov华等无法获取root的手机，建议拿去换盆</del> ，本文以redmi note7 pro为例，已刷机安卓11类原生</li>
 <li>一台能够使用ssh终端的设备</li>
 </ol>
-<h1 id="安装linuxdeploy并配置"><a href="#安装linuxdeploy并配置" class="headerlink" title="安装linuxdeploy并配置"></a>安装linuxdeploy并配置</h1><p>下载<a href="https://github.com/meefik/linuxdeploy/releases" target="_blank" rel="noopener">linuxdeploy</a>，安装到旧手机</p>
+<h1 id="安装linuxdeploy并配置"><a href="#安装linuxdeploy并配置" class="headerlink" title="安装linuxdeploy并配置"></a>安装linuxdeploy并配置</h1><p>下载<a href="https://github.com/meefik/linuxdeploy/releases">linuxdeploy</a>，安装到旧手机</p>
 <p><em>请确保安装的linuxdeploy版本≥2.0，否则需要首先安装busybox。而2.0以上的linuxdeploy内置了busybox</em></p>
 <p>打开linuxdeploy软件，点击左上角按钮，选择设置，勾选【锁定wi-fi】与【CPU唤醒】，其他选项按需配置，亦可保持默认</p>
 <p>回到上一级页面，点击右下角按钮，进行以下配置：</p>
@@ -50,13 +50,13 @@
 </li>
 <li><p>【发行版GNU&#x2F;Linux版本】按需选择，一般选择buster或stable</p>
 </li>
-<li><p>【源地址】建议改为以下地址：<a href="http://mirrors.163.com/debian" target="_blank" rel="noopener">http://mirrors.163.com/debian</a> ，保持默认亦可</p>
+<li><p>【源地址】建议改为以下地址：<a href="http://mirrors.163.com/debian">http://mirrors.163.com/debian</a> ，保持默认亦可</p>
 </li>
 <li><p>【安装类型】按需设置，建议选择镜像文件，因为它是一个单镜像文件</p>
 </li>
-<li><p>【安装路径】默认为<code>${EXTERNAL_STORAGE}/linux.img</code>，一般保持默认即可</p>
+<li><p>【安装路径】默认为<code>$&#123;EXTERNAL_STORAGE&#125;/linux.img</code>，一般保持默认即可</p>
 <blockquote>
-<p>安装路径有一定要注意下，默认是 ${EXTERNAL_STORAGE}&#x2F;linux.img，也就是外部储存，${ENV_DIR}则代表本机储存，有点坑在这里，因为所谓“内部”和“外部”并不是绝对的，和手机设置的默认储存位置有关，如果手机设置默认储存为本机的话，那么${EXTERNAL_STORAGE}其实代表的是安卓系统文件管理器能看到的目录的地址， ${ENV_DIR}代表的是安卓文件系统的内部地址，也就是root之后才能看到的那部分的目录（有点绕啊…）总之我想表达的是，最好使用绝对路径防止路径混乱，而绝对路径是从root之后的根目录算起的————博主<a href="https://blog.luvying.com/archives/linux-deploy" target="_blank" rel="noopener">ying</a>如是说</p>
+<p>安装路径有一定要注意下，默认是 ${EXTERNAL_STORAGE}&#x2F;linux.img，也就是外部储存，${ENV_DIR}则代表本机储存，有点坑在这里，因为所谓“内部”和“外部”并不是绝对的，和手机设置的默认储存位置有关，如果手机设置默认储存为本机的话，那么${EXTERNAL_STORAGE}其实代表的是安卓系统文件管理器能看到的目录的地址， ${ENV_DIR}代表的是安卓文件系统的内部地址，也就是root之后才能看到的那部分的目录（有点绕啊…）总之我想表达的是，最好使用绝对路径防止路径混乱，而绝对路径是从root之后的根目录算起的————博主<a href="https://blog.luvying.com/archives/linux-deploy">ying</a>如是说</p>
 </blockquote>
 </li>
 <li><p>【镜像大小】按需设置，若需搭建网盘服务，建议设置较大大小，可以使文件有足够的空间存储在linux镜像空间内，省去挂载手机存储的麻烦</p>
@@ -89,64 +89,60 @@
 <p>然后即可使用同一局域网下的ssh工具连接<br>为了防止旧手机的内网ip地址变更，在路由设置页面进行ip与MAC绑定，并把手机wifi连接中的隐私设置相关选项改为 使用设备MAC</p>
 <p>连接后，使用以下命令安装常用工具</p>
 <p><code>apt install wget vim curl zip -y</code></p>
-<p>附：<br>卸载命令<br><code>sudo apt-get --purge remove</code><br>xshell工具家庭&#x2F;学校版下载连接<br><a href="https://www.xshell.com/zh/free-for-home-school/" target="_blank" rel="noopener">https://www.xshell.com/zh/free-for-home-school/</a></p>
-<h1 id="安装并配置cloudreve"><a href="#安装并配置cloudreve" class="headerlink" title="安装并配置cloudreve"></a>安装并配置cloudreve</h1><p>项目发行地址：<a href="https://github.com/cloudreve/Cloudreve/releases" target="_blank" rel="noopener">cloudreve</a><br>截止到撰写本文（2022.01），最新版本为3.4.2</p>
+<p>附：<br>卸载命令<br><code>sudo apt-get --purge remove</code><br>xshell工具家庭&#x2F;学校版下载连接<br><a href="https://www.xshell.com/zh/free-for-home-school/">https://www.xshell.com/zh/free-for-home-school/</a></p>
+<h1 id="安装并配置cloudreve"><a href="#安装并配置cloudreve" class="headerlink" title="安装并配置cloudreve"></a>安装并配置cloudreve</h1><p>项目发行地址：<a href="https://github.com/cloudreve/Cloudreve/releases">cloudreve</a><br>截止到撰写本文（2022.01），最新版本为3.4.2</p>
 <p>执行以下命令</p>
 <p>切换到用户目录<br><code>cd /opt</code><br>创建文件夹并切换<br><code>mkdir cloudreve&amp;&amp;cd cloudreve</code><br>下载cloudreve<br><code>wget https://github.com/cloudreve/Cloudreve/releases/download/3.4.2/cloudreve_3.4.2_linux_arm64.tar.gz</code><br><em>根据需求自行选择下载的版本并替换wget后的链接</em></p>
 <p>解压<br><code>tar -zxvf cloudreve_3.4.2_linux_arm64.tar.gz</code><br>赋予权限<br><code>chmod +x ./cloudreve</code><br>启动<br><code>./cloudreve</code></p>
 <p>在终端中会给出初始管理员账号与密码，使用该账号登录http:&#x2F;&#x2F;{服务器内网ip}:{port(default is 5212)}<br>若无法访问，考虑配置防火墙开放端口</p>
-<p>进入cloudreve后，点击右上角头像，进入管理面板，即可进行相关设置，具体参见<a href="https://docs.cloudreve.org/" target="_blank" rel="noopener">cloudreve官方文档</a></p>
+<p>进入cloudreve后，点击右上角头像，进入管理面板，即可进行相关设置，具体参见<a href="https://docs.cloudreve.org/">cloudreve官方文档</a></p>
 <p><em>需要注意的是，在配置使用本机存储策略的用户组时，若存储目录在镜像空间内，要确保【初始容量】小于【镜像大小】，否则会无法上传任何文件</em></p>
 <h1 id="通过aria2实现离线下载"><a href="#通过aria2实现离线下载" class="headerlink" title="通过aria2实现离线下载"></a>通过aria2实现离线下载</h1><p>cloudreve内置了依赖于aria2的离线下载功能，因此需先进行aria2的配置</p>
-<h2 id="安装并配置aria2"><a href="#安装并配置aria2" class="headerlink" title="安装并配置aria2"></a>安装并配置aria2</h2><p>安装<br><code>apt install aria2 -y</code><br>下载由<a href="https://github.com/P3TERX" target="_blank" rel="noopener">P3TERX</a>提供的aria2配置文件（亦可选择其他配置或参考<a href="https://aria2.github.io/" target="_blank" rel="noopener">aria2官方文档</a>自行创建）</p>
-<pre><code>cd
-wget https://github.com/P3TERX/aria2.conf/archive/master.zip
-</code></pre>
-<p>将解压出的文件夹重命名为.aria2<br><code>mv aria2.conf-master .aria2</code><br>修改aria2配置文件<br><code>cd .aria2&amp;&amp;vim aria2.conf</code><br><a href="https://github.com/P3TERX" target="_blank" rel="noopener">P3TERX</a>的配置文件包含了中文注释，根据注释按需修改即可，一般需要改动的是<strong>下载目录</strong>、<strong>RPC密钥</strong>与<strong>BT监听端口</strong>，其他保持默认即可</p>
-<p>配置修改完成后，在.aria2目录内，执行<code>./tracker.sh</code>即可更新tracker<br>若更新失败，可进行手动更新，参考以下tracker列表<br><a href="https://trackerslist.com/all_aria2.txt" target="_blank" rel="noopener">https://trackerslist.com/all_aria2.txt</a><br>将列表内容复制到<code>aria2.conf</code>中的<code>bt-tracker</code>参数后即可</p>
+<h2 id="安装并配置aria2"><a href="#安装并配置aria2" class="headerlink" title="安装并配置aria2"></a>安装并配置aria2</h2><p>安装<br><code>apt install aria2 -y</code><br>下载由<a href="https://github.com/P3TERX">P3TERX</a>提供的aria2配置文件（亦可选择其他配置或参考<a href="https://aria2.github.io/">aria2官方文档</a>自行创建）</p>
+<pre class="language-none"><code class="language-none">cd
+wget https:&#x2F;&#x2F;github.com&#x2F;P3TERX&#x2F;aria2.conf&#x2F;archive&#x2F;master.zip</code></pre>
+<p>将解压出的文件夹重命名为.aria2<br><code>mv aria2.conf-master .aria2</code><br>修改aria2配置文件<br><code>cd .aria2&amp;&amp;vim aria2.conf</code><br><a href="https://github.com/P3TERX">P3TERX</a>的配置文件包含了中文注释，根据注释按需修改即可，一般需要改动的是<strong>下载目录</strong>、<strong>RPC密钥</strong>与<strong>BT监听端口</strong>，其他保持默认即可</p>
+<p>配置修改完成后，在.aria2目录内，执行<code>./tracker.sh</code>即可更新tracker<br>若更新失败，可进行手动更新，参考以下tracker列表<br><a href="https://trackerslist.com/all_aria2.txt">https://trackerslist.com/all_aria2.txt</a><br>将列表内容复制到<code>aria2.conf</code>中的<code>bt-tracker</code>参数后即可</p>
 <p>创建aria2.session文件<br><code>touch aria2.session</code></p>
 <p>测试aria2能否成功启动<br><code>aria2c --conf-path=/root/.aria2/aria2.conf</code><br>第一次启动需要指定配置文件，日后启动只需使用<code>aria2c</code>即可</p>
 <p>若启动成功，关闭即可，接下来进行进程保护配置，方便后续操作</p>
 <h2 id="保护cloudreve与aria2进程并设置自启动"><a href="#保护cloudreve与aria2进程并设置自启动" class="headerlink" title="保护cloudreve与aria2进程并设置自启动"></a>保护cloudreve与aria2进程并设置自启动</h2><p>cloudreve与aria2运行后，若关闭ssh终端，二者也会随之停止运行，因此需要进行进程守护，本文给出的方法是使用<code>supervisor</code></p>
 <p>安装</p>
-<pre><code>apt install python-setuptools -y
-apt install supervisor -y
-</code></pre>
+<pre class="language-none"><code class="language-none">apt install python-setuptools -y
+apt install supervisor -y</code></pre>
+
 <h3 id="保护cloudreve进程"><a href="#保护cloudreve进程" class="headerlink" title="保护cloudreve进程"></a>保护cloudreve进程</h3><p>为cloudreve创建配置并打开配置文件<br><code>sudo vim /etc/supervisor/conf.d/cloudreve.conf</code></p>
-<p>将以下内容按需修改后，写入cloudreve的supervisor配置文件，具体参见<a href="http://supervisord.org/configuration.html" target="_blank" rel="noopener">supervisor官方文档</a></p>
-<pre><code>[program:cloudreve]
-directory=/opt/cloudreve
-command=/opt/cloudreve/cloudreve
-autostart=true
-autorestart=true
-stderr_logfile=/var/log/supervisor/cloudreve.err
-stdout_logfile=/var/log/supervisor/cloudreve.log
-environment=CODENATION_ENV=prod
-</code></pre>
+<p>将以下内容按需修改后，写入cloudreve的supervisor配置文件，具体参见<a href="http://supervisord.org/configuration.html">supervisor官方文档</a></p>
+<pre class="language-none"><code class="language-none">[program:cloudreve]
+directory&#x3D;&#x2F;opt&#x2F;cloudreve
+command&#x3D;&#x2F;opt&#x2F;cloudreve&#x2F;cloudreve
+autostart&#x3D;true
+autorestart&#x3D;true
+stderr_logfile&#x3D;&#x2F;var&#x2F;log&#x2F;supervisor&#x2F;cloudreve.err
+stdout_logfile&#x3D;&#x2F;var&#x2F;log&#x2F;supervisor&#x2F;cloudreve.log
+environment&#x3D;CODENATION_ENV&#x3D;prod</code></pre>
 <p>以上内容备注：<br>程序目录&#x3D;&#x2F;opt&#x2F;cloudreve<br>运行命令(绝对路径)&#x3D;&#x2F;opt&#x2F;cloudreve&#x2F;cloudreve<br>自启动&#x3D;true<br>自动重启&#x3D;true<br>错误日志保存路径&#x3D;<br>其他日志保存路径&#x3D;<br>环境&#x3D;</p>
-<h3 id="保护aria2进程"><a href="#保护aria2进程" class="headerlink" title="保护aria2进程"></a>保护aria2进程</h3><p>与上同理，但为保证叙述清楚以及按需查阅，分别具体叙述<br>为aria2创建配置并打开配置文件<br><code>sudo vim /etc/supervisor/conf.d/aria2.conf</code><br>将以下内容按需修改后，写入aria2的supervisor配置文件，具体参见<a href="http://supervisord.org/configuration.html" target="_blank" rel="noopener">supervisor官方文档</a></p>
-<pre><code>[program:aria2]
-directory=/root/.aria2
-command=aria2c --conf-path=/root/.aria2/aria2.conf
-autostart=true
-autorestart=true
-stderr_logfile=/var/log/supervisor/aria2.err
-stdout_logfile=/var/log/supervisor/aria2.log
-environment=CODENATION_ENV=prod
-</code></pre>
+<h3 id="保护aria2进程"><a href="#保护aria2进程" class="headerlink" title="保护aria2进程"></a>保护aria2进程</h3><p>与上同理，但为保证叙述清楚以及按需查阅，分别具体叙述<br>为aria2创建配置并打开配置文件<br><code>sudo vim /etc/supervisor/conf.d/aria2.conf</code><br>将以下内容按需修改后，写入aria2的supervisor配置文件，具体参见<a href="http://supervisord.org/configuration.html">supervisor官方文档</a></p>
+<pre class="language-none"><code class="language-none">[program:aria2]
+directory&#x3D;&#x2F;root&#x2F;.aria2
+command&#x3D;aria2c --conf-path&#x3D;&#x2F;root&#x2F;.aria2&#x2F;aria2.conf
+autostart&#x3D;true
+autorestart&#x3D;true
+stderr_logfile&#x3D;&#x2F;var&#x2F;log&#x2F;supervisor&#x2F;aria2.err
+stdout_logfile&#x3D;&#x2F;var&#x2F;log&#x2F;supervisor&#x2F;aria2.log
+environment&#x3D;CODENATION_ENV&#x3D;prod</code></pre>
 <p>以上内容备注：<br>程序目录&#x3D;&#x2F;root&#x2F;.aria2<br>运行命令(绝对路径)&#x3D;aria2c –conf-path&#x3D;&#x2F;root&#x2F;.aria2&#x2F;aria2.conf<br>自启动&#x3D;true<br>自动重启&#x3D;true<br>错误日志保存路径&#x3D;<br>其他日志保存路径&#x3D;<br>环境&#x3D;</p>
 <hr>
 <p>启动supervisor<br><code>supervisord -c /etc/supervisor/supervisord.conf</code><br>至此便完成了进程守护配置<br>如需管理supervisor内进程，参考以下指令：</p>
-<pre><code>启动    sudo supervisorctl start cloudreve
+<pre class="language-none"><code class="language-none">启动    sudo supervisorctl start cloudreve
 停止    sudo supervisorctl stop cloudreve
-状态    sudo supervisorctl status cloudreve
-</code></pre>
+状态    sudo supervisorctl status cloudreve</code></pre>
+
 <p>附.网页管理supervisor进程配置：<br>在supervisor配置文件中（&#x2F;etc&#x2F;supervisor&#x2F;supervisord.conf），添加以下内容</p>
-<pre><code>[inet_http_server]
-port=127.0.0.1:8888
-username=
-password=
-</code></pre>
+<pre class="language-none"><code class="language-none">[inet_http_server]
+port&#x3D;127.0.0.1:8888
+username&#x3D;
+password&#x3D;</code></pre>
 <p>其中port、username、password参数可自行设置，若需外部访问，可将port设置为0.0.0.0:8888</p>
 <h3 id="配置开机自启动"><a href="#配置开机自启动" class="headerlink" title="配置开机自启动"></a>配置开机自启动</h3><p>若在linuxdeploy中，初始化系统选择了sysv，则无需额外配置即可自启动supervisor及其中的程序<br>若使用run-parts初始化，需额外配置，自行查询不再赘述</p>
 <h2 id="配置cloudreve离线下载功能"><a href="#配置cloudreve离线下载功能" class="headerlink" title="配置cloudreve离线下载功能"></a>配置cloudreve离线下载功能</h2><p>登录cloudreve管理页面，选择 离线下载节点 ，修改 主机（本机） 节点<br><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20220125103835.png" loading="lazy"></p>
@@ -169,7 +165,7 @@ password=
     <title>忽驰骛以追逐兮，岂汝心之所急？</title>
     <url>/sixuexi.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="“你要努力学习。”"><a href="#“你要努力学习。”" class="headerlink" title="“你要努力学习。”"></a>“你要努力学习。”</h2><p>很小的时候，就常被父母和老师这样教育。但是他们却从未告诉我，什么是“努力”，什么又是“学习”。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>于是，我只有不断地自己探索这两个词的含义。没有方向，只有效仿其他人，只有听从学校管理。</p>
 <p>这样的探索是低效的，是一个不断试错的过程。每当我出现错误时，父母和老师就会认为我没有“努力学习”。</p>
@@ -246,9 +242,9 @@ password=
     <title>ray-mmd制作法线贴图</title>
     <url>/mmdray3.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>如何使材质贴图更有层次感？</p>
-<a id="more"></a>
+<span id="more"></span>
 
-<p>这就需要制作相应的<a href="https://zh.wikipedia.org/wiki/%E6%B3%95%E7%BA%BF%E8%B4%B4%E5%9B%BE" target="_blank" rel="noopener">法线贴图</a><br>本文以YYB式初音未来为例，制作相应的法线贴图，使用ray渲染的版本为1.5.2</p>
+<p>这就需要制作相应的<a href="https://zh.wikipedia.org/wiki/%E6%B3%95%E7%BA%BF%E8%B4%B4%E5%9B%BE">法线贴图</a><br>本文以YYB式初音未来为例，制作相应的法线贴图，使用ray渲染的版本为1.5.2</p>
 <hr>
 <p>在制作法线贴图之前，首先要在MMD导入相应的模型，并完成ray渲染的基本流程，方便以下的对比操作，以寻找合适的参数。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813091507.png" loading="lazy"></p>
@@ -257,7 +253,7 @@ password=
 <p>导出为png格式，文件名应是英文</p>
 <p>在<code>~/ray-mmd-1.5.2/Materials</code>目录中，找到<code>material_2.0.fx</code>、<code>material_common_2.0.fxsub</code>两个文件，复制到模型目录中的材质贴图文件夹</p>
 <p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813093713.png" loading="lazy"></p>
-<p>然后重命名<code>material_2.0.fx</code>文件为<code>{你所导出的法线贴图的文件名}.fx</code></p>
+<p>然后重命名<code>material_2.0.fx</code>文件为<code>&#123;你所导出的法线贴图的文件名&#125;.fx</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813094047.png" loading="lazy"></p>
 <p>打开重命名后的该fx文件，在第28行左右找到<code>#define NORMAL_MAP_FROM 0</code>，将0修改为1以启用法线贴图。并更改<code>#define NORMAL_MAP_FILE &quot;normal.png&quot; </code>中的”normal”为法线贴图文件名</p>
 <p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20210813094408.png" loading="lazy"></p>
@@ -330,7 +326,7 @@ password=
     <title>再见，暑假。你好，高三。</title>
     <url>/summerholiday2.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>你好，十八岁</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="今年暑假"><a href="#今年暑假" class="headerlink" title="今年暑假"></a>今年暑假</h1><p>准高三，假期时间：2021.7.10-7.20，又因天气原因延期到7.25</p>
 <p>这个暑假我都做了些什么呢<br>因为父母工作，大部分时间都是我独自一人在家，而我又在家做了些什么呢<br>只是每天都坐在屏幕前打游戏，有时候又会追番看些视频<br>快乐吗？  快乐<br>充实吗？  空虚<br>去年暑假的时候，我还在充满热情地学习与创作（这是去年的<a href="./shujiazongjie.html">暑假总结</a>），可为什么现在的我，只想做不用任何劳动的事了<br><em>『——那热血沸腾的心终于变得平静』</em></p>
@@ -358,9 +354,9 @@ password=
     <title>自用MMEffect效果整理</title>
     <url>/mmecollect.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><ul>
-<li>AlternativeFull —— 可以生成一个FX，该FX可以控制模型上的光和影的明暗，并且可以添加高光、控制阴影颜色、使用法线贴图、边缘描绘等，用此可制作2d化效果 —— <a href="http://www.nicovideo.jp/watch/sm19753668" target="_blank" rel="noopener">配布视频</a>|<a href="https://goo.gl/UxFVwP" target="_blank" rel="noopener">下载地址</a>|<a href="http://ch.nicovideo.jp/LessThanEqual/blomaga/ar1023498" target="_blank" rel="noopener">官方教程</a></li>
-<li>AutoLuminous4 —— 材质自发光，用此可制作眼睛、发带、裙摆等亮光 —— <a href="http://1drv.ms/1hAXcox" target="_blank" rel="noopener">配布</a><h1 id="D"><a href="#D" class="headerlink" title="D"></a>D</h1></li>
-<li>Diffusion7 —— 使模组光影更柔和唯美 —— <a href="https://www.nicovideo.jp/watch/sm12182051" target="_blank" rel="noopener">配布</a><h1 id="G"><a href="#G" class="headerlink" title="G"></a>G</h1></li>
+<li>AlternativeFull —— 可以生成一个FX，该FX可以控制模型上的光和影的明暗，并且可以添加高光、控制阴影颜色、使用法线贴图、边缘描绘等，用此可制作2d化效果 —— <a href="http://www.nicovideo.jp/watch/sm19753668">配布视频</a>|<a href="https://goo.gl/UxFVwP">下载地址</a>|<a href="http://ch.nicovideo.jp/LessThanEqual/blomaga/ar1023498">官方教程</a></li>
+<li>AutoLuminous4 —— 材质自发光，用此可制作眼睛、发带、裙摆等亮光 —— <a href="http://1drv.ms/1hAXcox">配布</a><h1 id="D"><a href="#D" class="headerlink" title="D"></a>D</h1></li>
+<li>Diffusion7 —— 使模组光影更柔和唯美 —— <a href="https://www.nicovideo.jp/watch/sm12182051">配布</a><h1 id="G"><a href="#G" class="headerlink" title="G"></a>G</h1></li>
 <li>green flare —— 绿色耀斑<h1 id="H"><a href="#H" class="headerlink" title="H"></a>H</h1></li>
 <li>HgSSAO<h1 id="I"><a href="#I" class="headerlink" title="I"></a>I</h1></li>
 <li>ikBokeh —— 背景虚化，加强景深效果</li>
@@ -438,7 +434,7 @@ password=
     <title>我的停课反省生活</title>
     <url>/fansheng.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>常在河边走，哪有不湿鞋</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>最近心痒，从闲鱼捡了一张垃圾win平板，想拿来看小说、看番之类的</p>
 <p>卖家发了顺丰的快递，提货点离我家老远了，于是地址写到了我校内的快递代收室。<br>货是中午取到的，那天是周日，下午学校有一个一小时多的自由活动时间，于是拿着板子去宿舍和朋友倒腾了。<br>然后就一不小心被抓了。</p>
@@ -497,7 +493,7 @@ password=
   <entry>
     <title>放寒假咯</title>
     <url>/winterholiday.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><span id="more"></span>
 <p>今天上午考完外语，也算是正式进入了寒假。然而所谓假期是用来超越的，昨天班主任就发出了【自愿到校学习】的号召。</p>
 <p><img src="https://i.loli.net/2021/02/03/l91pQyIWMCcFPoq.png" loading="lazy"></p>
 <p>既然是自愿，就是依据自我的意愿去的吧，那不去的话也没关系的吧</p>
@@ -514,13 +510,13 @@ password=
     <title>2020年终总结</title>
     <url>/2020toend.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一年年来去匆匆，往事皆是云烟过眼，不做总结似乎像是虚度了一年时间。但想要写下的东西又太多，总结就不知不觉写成了流水账。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>去年这个时候，我在高一，也是像现在这样，半夜用手机写着一些不知所云的东西。但那时我住宿舍，现在上了高二，自己租房在校外。</p>
 <p>不由得又开始怀念高一第一学期的时光。初入高中大门，虽有种种不达预期想象的失望之处，但也算有着新鲜感。与新同学在一个班级里学习着新知识，倒也令我兴趣盎然。但是最让我庆幸的是，这个班里有很多同好（二次元圈），宿舍里还有几个和我一样的崩三玩家，这让一向社交困难的我很快融入了这个新的集体，还交到了几个死党，直到各分到不同班的现在也在一起玩的快乐。而且，每个老师的教书风格也是各有特色，那时候，我是怀着愉悦的心情去学习的。虽然成绩不算顶尖，倒也算不错。那时候，白天认真学习，晚上宿舍里一起打游戏，看动画，有时候又补作业。对我来说每天过得已经很是充实了。<br>但好景不长，下册期末考试后，学校重新分了班级。我们几个被各自分开，连楼层都不一样。我去了重点班（美其名曰“筑梦班”）。<br>进入这个班的时候，我还以为我能像以前那样，很快的融入集体，很快的结识同好，一起学习，一起玩耍。但我实在太天真了。到现在在这个班级里已经一年，我与班级里的其他同学没有走到一起，而是隔阂越来越大。在他们之中，几乎没有我所谓的同好，有的只是长着同一张脸的“好学生”而已。直到现在，我和他们一大半没有说过一句话。每次上体育课时，只有我一个人到学校后山，去看风景，有时候还会因为妨碍到情侣们亲热而遭受厌恶的目光。<br>而在宿舍，再也没有了以前的气氛。灯还没熄，就有人准备睡了，从进宿舍到第二天起床，说过的话屈指可数。于是，我在今年暑假之后申请了外宿，现在一个人住在学校附近租来的一间屋子里。</p>
 <p>再怎么怀念过去，也无法拾回那些已经散去的时光。关于追忆过去与阐述现在的处境，或许可以以后专门再写一篇。而现在的主题仍然是年度总结。</p>
 <hr>
-<p>今年都干了什么呢？我不知道从何处写起。只记得刚放寒假，就开始了防疫，接着就是网课。<br>网课的时光实在是惨不忍睹，每天都很忙，但是过的很无意义。既没有学好习，也没有玩的爽。对于网课最深的记忆就是建了博客。<br>网课结束后开学，本以为这次要一落千丈，但在班里的成绩却几乎没有变，<del>可能是我没有退步空间了罢</del>。后来每天加班加点的自己补习，也算赶了回来，成绩到现在有小幅提升。<br>我对于网课后的那段学期的事情已经记忆模糊了，具体都在干啥似乎没有印象，只记得那时候我因为住宿舍，好像每天都早睡早起？<br>后来就是暑假，今年的暑假过得确实不是一个滋味，正在做一个<a href="https://zh.moegirl.org.cn/zh-hans/ATRI_-My_Dear_Moments-" target="_blank" rel="noopener">atri</a>动态壁纸的动画，做了两天了，突然通知说开学，当时心情就跌入低谷，于是也就搁置下了工程。<br>重点班比其他班提前开学了两周，说是叫”特殊优待”。结果呢？多了两周的时间，到现在讲课进度却和其他班一样。<br>暑假似乎大部分时间都在推galgame了，之前写的暑假总结有详情。</p>
+<p>今年都干了什么呢？我不知道从何处写起。只记得刚放寒假，就开始了防疫，接着就是网课。<br>网课的时光实在是惨不忍睹，每天都很忙，但是过的很无意义。既没有学好习，也没有玩的爽。对于网课最深的记忆就是建了博客。<br>网课结束后开学，本以为这次要一落千丈，但在班里的成绩却几乎没有变，<del>可能是我没有退步空间了罢</del>。后来每天加班加点的自己补习，也算赶了回来，成绩到现在有小幅提升。<br>我对于网课后的那段学期的事情已经记忆模糊了，具体都在干啥似乎没有印象，只记得那时候我因为住宿舍，好像每天都早睡早起？<br>后来就是暑假，今年的暑假过得确实不是一个滋味，正在做一个<a href="https://zh.moegirl.org.cn/zh-hans/ATRI_-My_Dear_Moments-">atri</a>动态壁纸的动画，做了两天了，突然通知说开学，当时心情就跌入低谷，于是也就搁置下了工程。<br>重点班比其他班提前开学了两周，说是叫”特殊优待”。结果呢？多了两周的时间，到现在讲课进度却和其他班一样。<br>暑假似乎大部分时间都在推galgame了，之前写的暑假总结有详情。</p>
 <p>自从疫情长假过后，学校越来越不做人了，食宿条件都不怎么好，却让学生三周有时候四周全封闭在校，说是为了防范疫情。可全市的学校似乎也就我们在防范疫情了，真当为校领导点赞。</p>
 <p>暑假过后入坑了原神，猛肝了一段时间，有时候晚上放学还和同学去通宵，但到现在基本咸鱼了。那段时间上课总是犯困……</p>
 <hr>
@@ -539,7 +535,7 @@ password=
   <entry>
     <title>近况</title>
     <url>/jinkuang.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><span id="more"></span>
 
 <p>从八月中旬暑假开学到现在博客也一直没碰过了…实在是没有时间，而且也迫于学校要命的作息时间：三周休息一天，其余时间不能出校门。每天早上五点五十到班，晚上九点五十放学。<br>我申请了走读，在学校附近租了一间屋子，独居着。虽说组装了台勉强能应急使用的主机搬了过去，但是没有网络…只能靠手机流量苟活（<br>而且由于我的博客用的是hexo，源文件都是在本地电脑上的，更新也只能用部署时的用的那台电脑，而我建博客是疫情时候在家里的电脑折腾的，所以也就很难更新了..<br>即使是想更新，也不知道能写些什么了。总之就说一下近况吧。</p>
 <hr>
@@ -577,7 +573,7 @@ password=
     <title>蝴蝶</title>
     <url>/hudie.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>数学晚自习，教室里飞来一只蝴蝶。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>黑色的翅膀点缀着几点橙色，灵动地在教室里飞着。从前排飞到后排，又墙角飞到中央，从过道飞到讲台，在教室里转着圈。不知道是不是吊扇的风太大的缘故，它忽上忽下地翻旋。</p>
 <p>本来没有人在意这只班级的不速之客，但它就这样一直盘旋了十分钟多，以至于连后排备课的老师的注意力都被它吸引了，当老师站起来想送它出门时，却又找不到了它。</p>
@@ -601,7 +597,7 @@ password=
     <title>暑假总结</title>
     <url>/shujiazongjie.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>学校突然通知后天早上到学校开学了，看见那则通知的时候心头一颤，这时候才意识到自己还有好多project没去做，好多想看的番没去看，好多准备玩的游戏没去玩，放假前的书还堆在那里没整理….</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>就在得知通知的前一秒，我还在悠闲的一点点调一个atri动态壁纸的动画，这项工程是昨天上午开坑的，本来还打算慢慢地边摸鱼边做。可是现在我什么也不想干了，只想趁这最后的一天时间里，看几集动画，听几首歌之类的……</p>
 <p>没有什么事物是永恒的，哀叹要消失的东西是没有意义的，不如珍惜眼下的时光</p>
@@ -615,7 +611,7 @@ password=
 <p>推完魔女的夜宴之后又去推了千恋万花，不过只推了一条从雨线</p>
 <p>记得推魔女的夜宴之前还玩了另一个galgame《恋爱少女人格崩坏》来着，也是只过了一条线</p>
 <p>除了推galgame外，干的最有记的必要的事也就是摸了一个mmd，并把之前投稿在b站的丢人视频删了几个（虽然这个也很菜就是了</p>
-<p><a href="https://www.bilibili.com/video/BV1kf4y1R7ub/" target="_blank" rel="noopener">b站视频地址</a></p>
+<p><a href="https://www.bilibili.com/video/BV1kf4y1R7ub/">b站视频地址</a></p>
 <iframe src="//player.bilibili.com/player.html?aid=286400505&bvid=BV1kf4y1R7ub&cid=215445794&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 
@@ -702,9 +698,9 @@ password=
     <title>ray-mmd渲染基本流程</title>
     <url>/mmdray1.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://pic.downk.cc/item/5f119a0214195aa59417256d.png" loading="lazy"></p>
-<a id="more"></a>
+<span id="more"></span>
 
-<h1 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h1><p>前往<a href="https://github.com/ray-cast/ray-mmd" target="_blank" rel="noopener">github</a>下载最新版ray mmd<br>注意：不仅仅是打包下载code就完事的，还需要去下载各项扩展（详见github仓库下的readme）</p>
+<h1 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h1><p>前往<a href="https://github.com/ray-cast/ray-mmd">github</a>下载最新版ray mmd<br>注意：不仅仅是打包下载code就完事的，还需要去下载各项扩展（详见github仓库下的readme）</p>
 <p><img src="https://pic.downk.cc/item/5f116ea214195aa5940a510c.jpg" loading="lazy"></p>
 <p>下载完成后解压ray和各个扩展，把扩展文件分别复制到ray主目录中对应的文件夹中</p>
 <h1 id="渲染基本流程"><a href="#渲染基本流程" class="headerlink" title="渲染基本流程"></a>渲染基本流程</h1><p>载入人物，场景等数据后，就可以开始ray渲染了<br>但在这之前，还需要在mmd显示菜单中，关闭地面阴影显示，抗锯齿和各向异性过滤<br><img src="https://pic.downk.cc/item/5f11705414195aa5940ae29c.jpg" loading="lazy"><br><em>因为ray是自带抗锯齿和阴影的，如果不关则会导致一些难以名状的画面和性能问题</em></p>
@@ -734,7 +730,7 @@ password=
   <entry>
     <title>hexo设备迁移</title>
     <url>/hexoqianyi.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><span id="more"></span>
 
 <h2 id="网上方法参差不一，我直接简单粗暴法"><a href="#网上方法参差不一，我直接简单粗暴法" class="headerlink" title="网上方法参差不一，我直接简单粗暴法"></a>网上方法参差不一，我直接简单粗暴法</h2><ol>
 <li><p>备份整个blog文件夹（可以事先清理一下垃圾文件以减小体积）</p>
@@ -766,40 +762,40 @@ password=
   <entry>
     <title>随心整理一下我玩过的galgame（持续更新）</title>
     <url>/galgamezhengli.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><span id="more"></span>
 
 <p>就按照我能回想起来的先后顺序排序吧（，而且也懒得分类什么的，都混着列出来得了（<br>反正我玩的不算多←是真话</p>
 <hr>
 <h3 id="将所有的歌献给未来的你"><a href="#将所有的歌献给未来的你" class="headerlink" title="将所有的歌献给未来的你"></a>将所有的歌献给未来的你</h3><p><img src="https://i.loli.net/2021/06/02/FEuSNprv2xtG3LH.png" loading="lazy"></p>
 <blockquote>
-<p>未来のキミと、すべての歌に―是Supplement Time在2008年04月04日[1]发售的初音同人游戏。是Supplement Time出品的初音系列的同人游戏的第一部。其后续作有鈴が歌う、未来の音色―和未来の歌と、つながるヒトミ。<br>详见<a href="https://zh.moegirl.org/zh-hans/%E5%B0%86%E6%89%80%E6%9C%89%E7%9A%84%E6%AD%8C%E7%8C%AE%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0" target="_blank" rel="noopener">萌娘百科</a></p>
+<p>未来のキミと、すべての歌に―是Supplement Time在2008年04月04日[1]发售的初音同人游戏。是Supplement Time出品的初音系列的同人游戏的第一部。其后续作有鈴が歌う、未来の音色―和未来の歌と、つながるヒトミ。<br>详见<a href="https://zh.moegirl.org/zh-hans/%E5%B0%86%E6%89%80%E6%9C%89%E7%9A%84%E6%AD%8C%E7%8C%AE%E4%BA%8E%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0">萌娘百科</a></p>
 </blockquote>
 <p>应该是我玩的第一款gal？？不太确定了，反正玩的挺早的</p>
 <p>算是比较日常但是又有些波折的剧情，总之就是在大街上捡回家了只miku然后发生的种种……</p>
 <h3 id="nekopara"><a href="#nekopara" class="headerlink" title="nekopara"></a>nekopara</h3><p><img src="https://pic.downk.cc/item/5f04083814195aa5946cd80d.jpg" loading="lazy"></p>
 <blockquote>
-<p>《猫娘乐园》（日语：ネコぱら；英语：NEKOPARA）是由NEKO WORKs发行的Galgame。<br>详见萌娘百科<a href="https://zh.moegirl.org/zh-hans/%E7%8C%AB%E5%A8%98%E4%B9%90%E5%9B%AD#" target="_blank" rel="noopener">猫娘乐园</a></p>
+<p>《猫娘乐园》（日语：ネコぱら；英语：NEKOPARA）是由NEKO WORKs发行的Galgame。<br>详见萌娘百科<a href="https://zh.moegirl.org/zh-hans/%E7%8C%AB%E5%A8%98%E4%B9%90%E5%9B%AD#">猫娘乐园</a></p>
 </blockquote>
 <p>经典的猫系gal，<del>听说打个补丁会更有趣</del></p>
 <h3 id="美少女万华镜"><a href="#美少女万华镜" class="headerlink" title="美少女万华镜"></a>美少女万华镜</h3><p>不配图了这个emmmm</p>
 <blockquote>
-<p>《美少女万华镜》美少女万拔镜（日语：美少女万華鏡）是日本游戏品牌ωstar制作并发售的纯爱系超自然官能AVG系列作品。 详见萌娘百科<a href="https://zh.moegirl.org/zh-hans/%E7%BE%8E%E5%B0%91%E5%A5%B3%E4%B8%87%E5%8D%8E%E9%95%9C#" target="_blank" rel="noopener">美少女万华镜</a></p>
+<p>《美少女万华镜》美少女万拔镜（日语：美少女万華鏡）是日本游戏品牌ωstar制作并发售的纯爱系超自然官能AVG系列作品。 详见萌娘百科<a href="https://zh.moegirl.org/zh-hans/%E7%BE%8E%E5%B0%91%E5%A5%B3%E4%B8%87%E5%8D%8E%E9%95%9C#">美少女万华镜</a></p>
 </blockquote>
 <h3 id="哥哥，早上起床之前都要抱紧我哦！"><a href="#哥哥，早上起床之前都要抱紧我哦！" class="headerlink" title="哥哥，早上起床之前都要抱紧我哦！"></a>哥哥，早上起床之前都要抱紧我哦！</h3><p><img src="https://pic.downk.cc/item/5f0409ee14195aa5946d78e2.jpg" loading="lazy"></p>
 <blockquote>
-<p>《哥哥，早上起床之前都要抱紧我哦！》是由Tinkle Position制作的一部Galgame。 <a href="https://zh.moegirl.org/zh-hans/%E5%93%A5%E5%93%A5%EF%BC%8C%E6%97%A9%E4%B8%8A%E8%B5%B7%E5%BA%8A%E4%B9%8B%E5%89%8D%E9%83%BD%E8%A6%81%E6%8A%B1%E7%B4%A7%E6%88%91%E5%93%A6%EF%BC%81" target="_blank" rel="noopener">萌娘百科详情</a></p>
+<p>《哥哥，早上起床之前都要抱紧我哦！》是由Tinkle Position制作的一部Galgame。 <a href="https://zh.moegirl.org/zh-hans/%E5%93%A5%E5%93%A5%EF%BC%8C%E6%97%A9%E4%B8%8A%E8%B5%B7%E5%BA%8A%E4%B9%8B%E5%89%8D%E9%83%BD%E8%A6%81%E6%8A%B1%E7%B4%A7%E6%88%91%E5%93%A6%EF%BC%81">萌娘百科详情</a></p>
 </blockquote>
 <p><del>国欠妹系列</del></p>
 <h3 id="缘之空"><a href="#缘之空" class="headerlink" title="缘之空"></a>缘之空</h3><p><img src="https://pic.downk.cc/item/5f040afe14195aa5946dd903.jpg" loading="lazy"></p>
 <blockquote>
-<p>《缘之空》（ヨスガノソラ，Yosuga no Sora）是Sphere于2008年12月5日发售的恋爱文字冒险游戏，也是Sphere的处女作。亦有漫画、动画、Fandisk、广播剧等衍生作品。<a href="https://zh.moegirl.org/zh-hans/%E7%BC%98%E4%B9%8B%E7%A9%BA#" target="_blank" rel="noopener">萌娘百科：缘之空</a></p>
+<p>《缘之空》（ヨスガノソラ，Yosuga no Sora）是Sphere于2008年12月5日发售的恋爱文字冒险游戏，也是Sphere的处女作。亦有漫画、动画、Fandisk、广播剧等衍生作品。<a href="https://zh.moegirl.org/zh-hans/%E7%BC%98%E4%B9%8B%E7%A9%BA#">萌娘百科：缘之空</a></p>
 </blockquote>
 <p>国欠妹*2<br>对应的续作还有一部『悠之空』</p>
 <h3 id="双子洛丽塔后宫"><a href="#双子洛丽塔后宫" class="headerlink" title="双子洛丽塔后宫"></a>双子洛丽塔后宫</h3><p>   <img src="https://pic.downk.cc/item/5f040b9114195aa5946e11b6.jpg" loading="lazy"></p>
 <p>   不说什么~</p>
 <h3 id="東津萌米-穗姬"><a href="#東津萌米-穗姬" class="headerlink" title="東津萌米-穗姬"></a>東津萌米-穗姬</h3><p><img src="https://i.loli.net/2020/07/07/ygVwB4o3i19zxXm.jpg" loading="lazy"><em>找不到更高清的图了</em></p>
 <blockquote>
-<p>穗姬是原产于台湾屏东县东港镇的杂交稻米品种“高雄145”以及该稻米所产的大米“东津萌米”的萌娘化形象，也登场于游戏《东津萌米-穗姬》中。 <a href="https://zh.moegirl.org/zh-hans/%E7%A9%97%E5%A7%AC#" target="_blank" rel="noopener">萌娘百科：穗姬</a></p>
+<p>穗姬是原产于台湾屏东县东港镇的杂交稻米品种“高雄145”以及该稻米所产的大米“东津萌米”的萌娘化形象，也登场于游戏《东津萌米-穗姬》中。 <a href="https://zh.moegirl.org/zh-hans/%E7%A9%97%E5%A7%AC#">萌娘百科：穗姬</a></p>
 </blockquote>
 <p>国产游戏，更偏向于养成系的（种大米），姑且也算是galgame吧<br><del>万物皆可萌</del></p>
 <h3 id="家有仙妻～无名小猫又与神Tuber～"><a href="#家有仙妻～无名小猫又与神Tuber～" class="headerlink" title="家有仙妻～无名小猫又与神Tuber～"></a>家有仙妻～无名小猫又与神Tuber～</h3><p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200707140100.png" loading="lazy"></p>
@@ -835,14 +831,14 @@ password=
         <category>Games</category>
       </categories>
       <tags>
-        <tag>ACG</tag>
         <tag>galgame</tag>
+        <tag>ACG</tag>
       </tags>
   </entry>
   <entry>
     <title>声之形</title>
     <url>/shengzhixing.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="The-shape-of-voice"><a href="#The-shape-of-voice" class="headerlink" title="The shape of voice"></a>The shape of voice</h1><a id="more"></a>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="The-shape-of-voice"><a href="#The-shape-of-voice" class="headerlink" title="The shape of voice"></a>The shape of voice</h1><span id="more"></span>
 
 <p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200705222922.jpg" loading="lazy"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200705223001.jpg" loading="lazy"></p>
@@ -887,10 +883,10 @@ password=
     <title>博客更新日志2</title>
     <url>/bokegengxinrizhi2.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>又换皮了</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <ul>
-<li>换了新主题~~原主题是<a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener">butterfly</a>,原主题之前的原主题是<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">matery</a></li>
+<li>换了新主题~~原主题是<a href="https://github.com/jerryc127/hexo-theme-butterfly">butterfly</a>,原主题之前的原主题是<a href="https://github.com/blinkfox/hexo-theme-matery">matery</a></li>
 </ul>
 <p>为什么又换皮了？？</p>
 <p><del>喜新厌旧了</del></p>
@@ -1094,7 +1090,7 @@ password=
   <entry>
     <title>【归档】弹幕礼仪</title>
     <url>/guidangdanmuliyi.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原出处：bilibili帮助中心&gt;弹幕相关&gt;<a href="https://www.bilibili.com/blackboard/help.html#%E5%BC%B9%E5%B9%95%E7%A4%BC%E4%BB%AA?id=5b33066da7fc47f3b206e78459de45c6" target="_blank" rel="noopener">弹幕礼仪</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原出处：bilibili帮助中心&gt;弹幕相关&gt;<a href="https://www.bilibili.com/blackboard/help.html#%E5%BC%B9%E5%B9%95%E7%A4%BC%E4%BB%AA?id=5b33066da7fc47f3b206e78459de45c6">弹幕礼仪</a></p>
 <p>2020年4月19日</p>
 <p>说明：这个分类是对一些 重要的&amp;可能以后会变动的&amp;博主认为值得收集 之类的内容进行搬运或整理</p>
 <hr>
@@ -1171,17 +1167,17 @@ password=
   <entry>
     <title>推荐一个图床-ASnetIMG 并搭配PicGo实现一键上传复制直链</title>
     <url>/asimgtuijian.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>首先说一下这个图床<br><a href="https://img.asnet.ga/" target="_blank" rel="noopener">ASNETIMG</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>首先说一下这个图床<br><a href="https://img.asnet.ga/">ASNETIMG</a></p>
 <p><img src="https://img.asnet.ga/i/2020/04/17/islip6.png" loading="lazy"></p>
 <p>是一个不太有名气但体验还不错的图床，速度也还行，走的香港CN2节点<br>限制：单张图片限制30M，每次最多上传30张图片。<br>限制很宽，而且目前完全免费无广告，可以说是很良心了</p>
 <hr>
-<p>然后说一下<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGO</a>这个工具</p>
+<p>然后说一下<a href="https://github.com/Molunerfinn/PicGo">PicGO</a>这个工具</p>
 <p><img src="https://img.asnet.ga/i/2020/04/17/iksrm3.png" loading="lazy"></p>
-<p>这是一个支持大多有名图床，一键上传并直接复制markdown格式链接的图床上传工具，算是比较有名，具体可以去<a href="https://picgo.github.io/PicGo-Doc/zh/guide/getting-started.html" target="_blank" rel="noopener">官方使用文档</a>看看，可以提供很方便快捷的功能</p>
-<p>PicGo原生是不支持ASNETIMG的，但是PicGo具有很多插件，也就可以提供更为自定义化的功能，去安装<a href="https://github.com/yuki-xin/picgo-plugin-web-uploader" target="_blank" rel="noopener">自定义web图床上传</a>这个插件然后按照以下图片配置，就可以实现一键上传至ASNETIMG并复制链接</p>
+<p>这是一个支持大多有名图床，一键上传并直接复制markdown格式链接的图床上传工具，算是比较有名，具体可以去<a href="https://picgo.github.io/PicGo-Doc/zh/guide/getting-started.html">官方使用文档</a>看看，可以提供很方便快捷的功能</p>
+<p>PicGo原生是不支持ASNETIMG的，但是PicGo具有很多插件，也就可以提供更为自定义化的功能，去安装<a href="https://github.com/yuki-xin/picgo-plugin-web-uploader">自定义web图床上传</a>这个插件然后按照以下图片配置，就可以实现一键上传至ASNETIMG并复制链接</p>
 <p>安装插件后，在图床设置中找到自定义web图床<br><img src="https://img.asnet.ga/i/2020/04/17/ip17n5.png" loading="lazy"></p>
 <p>然后按照图片中的设置<br><img src="https://img.asnet.ga/i/2020/04/17/iq1v75.png" loading="lazy"></p>
-<p>API地址： <a href="https://img.asnet.ga/file.php" target="_blank" rel="noopener">https://img.asnet.ga/file.php</a><br>POST参数名： <code>file</code><br>JSON路径： <code>url</code></p>
+<p>API地址： <a href="https://img.asnet.ga/file.php">https://img.asnet.ga/file.php</a><br>POST参数名： <code>file</code><br>JSON路径： <code>url</code></p>
 <p>点击确定，设为默认图床，然后就配置完成啦。</p>
 <p>PicGo的默认上传快捷键是Ctrl+shift+P，截一张图保存到剪贴板，然后试试效果吧，这个图床的上传速度是非常快的，而且也不会出现像其他图床那样莫名其妙上传失败的情况</p>
 ]]></content>
@@ -1198,7 +1194,7 @@ password=
     <url>/pdbeizhua.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>2020年04月15日，小有名气的第三方百度网盘下载器<code>pandownload</code>开发者被抓，警方对事件的描述如下</p>
 <p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200417065029.png" loading="lazy"></p>
-<p>由于本人并不懂法，所以尽量少扯一些和法律有关的话题。关于与此案件相关的法律知识可以看一下这位知乎答主的回答.<a href="https://www.zhihu.com/question/388027206/answer/1156166701" target="_blank" rel="noopener"><br>法的守夜人</a></p>
+<p>由于本人并不懂法，所以尽量少扯一些和法律有关的话题。关于与此案件相关的法律知识可以看一下这位知乎答主的回答.<a href="https://www.zhihu.com/question/388027206/answer/1156166701"><br>法的守夜人</a></p>
 <hr>
 <p>首先我认为百度维权确实没有错，然后再来瞎扯一些其他的：</p>
 <p>这个所谓‘刘某’为了保护自己的隐私而报案，我对这一点十分怀疑，但也不敢乱猜测，总之都懂。<br>但是，他是怎么知道自己的隐私被pandownload泄露了呢？<br>首先刘某肯定用了pandownload这个软件，但是，百度网盘官方事后在微博上发帖时，为何对pandownload只字不提？只说配合配合警方调查？</p>
@@ -1290,17 +1286,16 @@ password=
 <h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>‘一切皆是对象’，包括类，实例，变量，等等都可以视为对象</p>
 <h1 id="python面向对象"><a href="#python面向对象" class="headerlink" title="python面向对象"></a>python面向对象</h1><p>例：<br>现有三人，分别是张三、小明、李华<br>则，“人”是类；张三，小明，李华是具体的对象</p>
 <p>定义一个类，使用<code>class</code>函数：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Human</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Human</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">,</span>birth<span class="token punctuation">,</span>sex<span class="token punctuation">,</span>weight<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
         self<span class="token punctuation">.</span>birth <span class="token operator">=</span> birth
         self<span class="token punctuation">.</span>sex <span class="token operator">=</span> sex
         self<span class="token punctuation">.</span>weight <span class="token operator">=</span> weight
-    <span class="token comment" spellcheck="true">#↑定义类并绑定属性</span>
+    <span class="token comment">#↑定义类并绑定属性</span>
     <span class="token keyword">def</span> <span class="token function">say</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>word<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'{self.name} is human and can speak:{word}'</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true">#↑数据封装，称为‘类的方法’</span>
-</code></pre>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>self<span class="token punctuation">.</span>name<span class="token punctuation">&#125;</span></span><span class="token string"> is human and can speak:</span><span class="token interpolation"><span class="token punctuation">&#123;</span>word<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+    <span class="token comment">#↑数据封装，称为‘类的方法’</span></code></pre>
 <p>解释&amp;注意：</p>
 <ol>
 <li><code>__init__</code>前后是双下划线</li>
@@ -1311,21 +1306,20 @@ password=
 <li><code>def say(self)</code>的作用是为<code>Human</code>定义一个‘方法’，方法的内容即后面的代码。除了第一个参数是<code>self</code>之外，其他和定义一个函数一样，要调用一个方法，只需要在实例变量上直接调用，除了<code>self</code>不用传递，其他参数正常传入。</li>
 </ol>
 <p>现在，已经完成了<code>Human</code>类的定义，接下来要为类创建实例</p>
-<pre class=" language-python"><code class="language-python">zhangsan <span class="token operator">=</span> Human<span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">20990101</span><span class="token punctuation">,</span><span class="token string">'man'</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#这表示`zhangsan`是一个`Human`实例，`name`是‘张三’ `birth`是20990101， `sex` 是‘man’，`weight`为6</span>
-zhangsan<span class="token punctuation">.</span>say<span class="token punctuation">(</span><span class="token string">'hi!'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#调用 类的方法，其中为`word`传入的参数为`hi!`</span>
+<pre class="language-python" data-language="python"><code class="language-python">zhangsan <span class="token operator">=</span> Human<span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token number">20990101</span><span class="token punctuation">,</span><span class="token string">'man'</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span>
+<span class="token comment">#这表示`zhangsan`是一个`Human`实例，`name`是‘张三’ `birth`是20990101， `sex` 是‘man’，`weight`为6</span>
+zhangsan<span class="token punctuation">.</span>say<span class="token punctuation">(</span><span class="token string">'hi!'</span><span class="token punctuation">)</span><span class="token comment">#调用 类的方法，其中为`word`传入的参数为`hi!`</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>zhangsan<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>zhangsan<span class="token punctuation">.</span>sex<span class="token punctuation">)</span>
-</code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span>zhangsan<span class="token punctuation">.</span>sex<span class="token punctuation">)</span></code></pre>
 <p>以上代码（包括定义类）的输出为：</p>
-<pre><code>zhangsan is human and can speak:hi!
+<pre class="language-none"><code class="language-none">zhangsan is human and can speak:hi!
 zhangsan
-man
-</code></pre>
+man</code></pre>
+
 <h1 id="小结-amp-参见"><a href="#小结-amp-参见" class="headerlink" title="小结&amp;参见"></a>小结&amp;参见</h1><blockquote>
 <p>类是创建实例的模板，而实例则是一个一个具体的对象，各个实例拥有的数据都互相独立，互不影响；<br>方法就是与实例绑定的函数，和普通函数不同，方法可以直接访问实例的数据；</p>
 </blockquote>
-<p>参见：<br><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017495723838528" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/1016959663602400/1017495723838528</a><br><a href="https://zhuanlan.zhihu.com/p/31251011" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/31251011</a></p>
+<p>参见：<br><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017495723838528">https://www.liaoxuefeng.com/wiki/1016959663602400/1017495723838528</a><br><a href="https://zhuanlan.zhihu.com/p/31251011">https://zhuanlan.zhihu.com/p/31251011</a></p>
 <p><del>没有对象怎么面向对象</del></p>
 ]]></content>
       <categories>
@@ -1340,7 +1334,7 @@ man
     <url>/ruhekexuedeshuiwenzhang.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>（先把标题里’Ai’和’科学’划掉</p>
 <p>最近看到某人在水文章，想了想，自己的博客也好百万毫秒没更新过了，于是本文 应 运 而 生</p>
-<h1 id="狗屁不通的初级水"><a href="#狗屁不通的初级水" class="headerlink" title="狗屁不通的初级水"></a>狗屁不通的初级水</h1><p>很多人应该都见过这个东西<br>项目：<a href="https://github.com/menzi11/BullshitGenerator" target="_blank" rel="noopener">狗屁不通文章生成器</a><br>在线演示：<a href="https://suulnnka.github.io/BullshitGenerator/index.html" target="_blank" rel="noopener">网页版</a></p>
+<h1 id="狗屁不通的初级水"><a href="#狗屁不通的初级水" class="headerlink" title="狗屁不通的初级水"></a>狗屁不通的初级水</h1><p>很多人应该都见过这个东西<br>项目：<a href="https://github.com/menzi11/BullshitGenerator">狗屁不通文章生成器</a><br>在线演示：<a href="https://suulnnka.github.io/BullshitGenerator/index.html">网页版</a></p>
 <p>效果如下图<br><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200410211222.png" loading="lazy"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200410211829.png" loading="lazy"></p>
 <p><del>为了凑字，我复制一段</del></p>
@@ -1350,8 +1344,8 @@ man
 <p>↑很显然这玩意的确是<strong>狗屁不通</strong></p>
 <p>那么，有没有更通畅一点的？</p>
 <h1 id="有点强的高级水"><a href="#有点强的高级水" class="headerlink" title="有点强的高级水"></a>有点强的高级水</h1><p>前两天在吾爱论坛上看到了这个</p>
-<p><a href="https://www.52pojie.cn/thread-1147758-1-1.html" target="_blank" rel="noopener">人工智能文章创作助手</a></p>
-<p>基于<a href="https://github.com/Morizeyao/GPT2-Chinese" target="_blank" rel="noopener">GPT2-Chinese</a>这个开源项目</p>
+<p><a href="https://www.52pojie.cn/thread-1147758-1-1.html">人工智能文章创作助手</a></p>
+<p>基于<a href="https://github.com/Morizeyao/GPT2-Chinese">GPT2-Chinese</a>这个开源项目</p>
 <p>以下是这个程序的一些特点：</p>
 <ul>
 <li>支持散文，金庸，金融三种类型的创作</li>
@@ -1391,10 +1385,10 @@ man
     <title>MMD中导出带alpha通道视频的方法</title>
     <url>/guanyummdzhongdaochudaialphatongdaoshipindefangfa.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p> 闲来无事在摸MMD，然后看到了这个</p>
-<p> <a href="https://www.bilibili.com/video/BV1r7411u7ST" target="_blank" rel="noopener">【PV背景配布&#x2F;动作配布】九尾三妈式初音 - お気に召すまま
+<p> <a href="https://www.bilibili.com/video/BV1r7411u7ST">【PV背景配布&#x2F;动作配布】九尾三妈式初音 - お気に召すまま
 </a></p>
 <p>感觉这个配布的挺不错，想摸一个。<br>但是碰到点问题：60fps的背景是单独的视频，需要通过后期软件把人物和背景的视频叠加起来，这就要一个带有alpha通道（透明）的人物视频，去网上找了一些方法，依旧踩了不少坑。</p>
-<h1 id="通过一个MME实现"><a href="#通过一个MME实现" class="headerlink" title="通过一个MME实现"></a>通过一个MME实现</h1><p>找了很多方法，感觉就这个最简单方便。<br>首先去下载这个MME：<a href="https://bowlroll.net/file/27004" target="_blank" rel="noopener">https://bowlroll.net/file/27004</a><br>这个MME可以让你随心所欲的加花里花哨的全局MME，而不会丢失透明通道</p>
+<h1 id="通过一个MME实现"><a href="#通过一个MME实现" class="headerlink" title="通过一个MME实现"></a>通过一个MME实现</h1><p>找了很多方法，感觉就这个最简单方便。<br>首先去下载这个MME：<a href="https://bowlroll.net/file/27004">https://bowlroll.net/file/27004</a><br>这个MME可以让你随心所欲的加花里花哨的全局MME，而不会丢失透明通道</p>
 <p>下载之后<strong>保持乱码状态解压</strong></p>
 <p>然后在<code>RewriteAlpha</code>文件夹中，往MMD里加入这个<code>RewriteAlpha.x</code></p>
 <p>在MMD&gt;背景&gt;绘制附件中，把<code>RewriteAlpha.x</code>放到最后一位</p>
@@ -1645,7 +1639,7 @@ man
 <p><img src="https://s1.ax1x.com/2020/04/03/GaTC7t.png" alt="GaTC7t.png" loading="lazy"></p>
 <h1 id="To-Be-Continue"><a href="#To-Be-Continue" class="headerlink" title="To Be Continue"></a>To Be Continue</h1><p>To Be Continue</p>
 <p>对于这件事，我只想说</p>
-<p><a href="https://imgchr.com/i/GaoIX9" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/04/03/GaoIX9.png" alt="GaoIX9.png" loading="lazy"></a></p>
+<p><a href="https://imgchr.com/i/GaoIX9"><img src="https://s1.ax1x.com/2020/04/03/GaoIX9.png" alt="GaoIX9.png" loading="lazy"></a></p>
 <p>附上小视频</p>
 <iframe src="//player.bilibili.com/player.html?aid=667574836&bvid=BV1Ea4y1t7vy&cid=173564193&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width:640px; height:460px"> </iframe>
 
@@ -1661,8 +1655,8 @@ man
     <title>搭了个onedrive列表</title>
     <url>/daliaogeonedriveliebiao.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>如题</p>
-<p>网址：<a href="https://krau.top/od">krau的神秘口袋</a><br>项目地址：<a href="https://github.com/vcheckzen/FODI" target="_blank" rel="noopener">FODI</a><br>话说这前端也太难看了<del>（你行你上啊）</del><br>后端是搞到了cf上</p>
-<p>从<a href="https://leao.blog/" target="_blank" rel="noopener">@Leao</a>那里py来的5T onedrive空间</p>
+<p>网址：<a href="https://krau.top/od">krau的神秘口袋</a><br>项目地址：<a href="https://github.com/vcheckzen/FODI">FODI</a><br>话说这前端也太难看了<del>（你行你上啊）</del><br>后端是搞到了cf上</p>
+<p>从<a href="https://leao.blog/">@Leao</a>那里py来的5T onedrive空间</p>
 <p><del>目前里面什么都没有，后续也不会发任何浮力，请不要收藏它</del></p>
 ]]></content>
       <categories>
@@ -1685,9 +1679,9 @@ man
 </ul>
 <h1 id="废话"><a href="#废话" class="headerlink" title="废话"></a>废话</h1><p>等我梳理的差不多了就来补上</p>
 <p><del>都快开学了那就别补了</del></p>
-<p>话说为什么要学爬虫，契机是因为看到了这个<a href="https://api.lolicon.app/setu" target="_blank" rel="noopener">随机涩图</a></p>
+<p>话说为什么要学爬虫，契机是因为看到了这个<a href="https://api.lolicon.app/setu">随机涩图</a></p>
 <hr>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#下载头像并保存在/avatar/{时间戳}.jpg中</span>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token comment">#下载头像并保存在/avatar/&#123;时间戳&#125;.jpg中</span>
 <span class="token keyword">import</span> requests
 <span class="token keyword">import</span> os
 <span class="token keyword">import</span> time
@@ -1696,19 +1690,19 @@ c <span class="token operator">=</span> os<span class="token punctuation">.</spa
 url <span class="token operator">=</span> <span class="token string">'https://api.yimian.xyz/img?type=head'</span>
 <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
     x <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-    b <span class="token operator">=</span> int<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    a <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">'avatar'</span><span class="token punctuation">,</span><span class="token string">'{b}.jpg'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>b<span class="token operator">=</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">with</span> open<span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    b <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    a <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">'avatar'</span><span class="token punctuation">,</span><span class="token string">'&#123;b&#125;.jpg'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>b<span class="token operator">=</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
         f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>x<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span><span class="token string">'.jpg'</span><span class="token punctuation">)</span>
-</code></pre>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#爬取leao.blog的文章封面图直链</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span><span class="token string">'.jpg'</span><span class="token punctuation">)</span></code></pre>
+
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token comment">#爬取leao.blog的文章封面图直链</span>
 <span class="token keyword">import</span> requests<span class="token punctuation">,</span>os<span class="token punctuation">,</span>time
 <span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
 pagenum <span class="token operator">=</span> <span class="token number">0</span>
 <span class="token keyword">while</span> pagenum<span class="token operator">&lt;</span><span class="token number">5</span><span class="token punctuation">:</span>
     pagenum<span class="token operator">+=</span><span class="token number">1</span>
-    url <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">'https://leao.blog/page/'</span><span class="token punctuation">,</span><span class="token string">'{pagenum}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>pagenum<span class="token operator">=</span>pagenum<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    url <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">'https://leao.blog/page/'</span><span class="token punctuation">,</span><span class="token string">'&#123;pagenum&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>pagenum<span class="token operator">=</span>pagenum<span class="token punctuation">)</span><span class="token punctuation">)</span>
     req <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
     soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>req<span class="token punctuation">.</span>text<span class="token punctuation">,</span><span class="token string">'lxml'</span><span class="token punctuation">)</span>
     data <span class="token operator">=</span> soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'#brand-waterfall > div > a > div > img'</span><span class="token punctuation">)</span>
@@ -1723,8 +1717,8 @@ pagenum <span class="token operator">=</span> <span class="token number">0</span
         <span class="token keyword">pass</span>
 <span class="token keyword">else</span><span class="token punctuation">:</span>
     <span class="token keyword">pass</span>
-<span class="token comment" spellcheck="true">#pass写这么全有必要吗</span>
-</code></pre>
+<span class="token comment">#pass写这么全有必要吗</span></code></pre>
+
 <p>先溜了，可能要被某人杠</p>
 ]]></content>
       <categories>
@@ -1770,22 +1764,20 @@ pagenum <span class="token operator">=</span> <span class="token number">0</span
 <p>print(‘’’line1<br>… line2<br>… line3’’’)<br>line1<br>line2<br>line3</p>
 </blockquote>
 <p>多行字符串 ‘’’…’’’ 还可以在前面加上r使用</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token triple-quoted-string string">'''hello,\n
-world'''</span><span class="token punctuation">)</span>
-</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token triple-quoted-string string">r'''hello,\n
+world'''</span><span class="token punctuation">)</span></code></pre>
 <p>输出内容:</p>
 <blockquote>
 <p>hello,\n<br>world</p>
 </blockquote>
 <p>字符串可以索引或切片</p>
 <p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/stringqiepiansuoyin.jpg" loading="lazy"></p>
-<pre class=" language-python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">'My Name Is Miku'</span>
+<pre class="language-python" data-language="python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">'My Name Is Miku'</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">:</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 将会输出‘Mike’</span>
+<span class="token comment"># 将会输出‘Mike’</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 将会输出‘M'</span>
-</code></pre>
+<span class="token comment"># 将会输出‘M'</span></code></pre>
 <h2 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h2><p>布尔值只有<code>True </code>和 <code>Flase</code></p>
 <p>在python中，可以直接使用True，Flase表示布尔值（区分大小写）。也可以通过布尔运算计算出来</p>
 <p>布尔值可以用<code>and</code>、<code>or</code>和<code>not</code>运算。</p>
@@ -1803,20 +1795,16 @@ world'''</span><span class="token punctuation">)</span>
 <p>需要提起的一点是，编程中的<code>=</code> 不是数学中的等号，它是赋值符号，把右边的值赋给左边</p>
 <h1 id="list-和-tuple"><a href="#list-和-tuple" class="headerlink" title="list 和 tuple"></a>list 和 tuple</h1><h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><h3 id="简要概念-1"><a href="#简要概念-1" class="headerlink" title="简要概念"></a>简要概念</h3><p>list是python内置的一种数据类型：列表。它是一个有序的集合，可以随时添加，更改，删除其中的元素。其中元素的数据类型可以不同或相同<br>并且，list可嵌套<br><del>（禁止套娃）</del></p>
 <p>例：</p>
-<pre class=" language-python"><code class="language-python">alpha <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'wtf'</span><span class="token punctuation">,</span><span class="token string">'awsl'</span><span class="token punctuation">,</span><span class="token string">'gkd'</span><span class="token punctuation">]</span>
-</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">alpha <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'wtf'</span><span class="token punctuation">,</span><span class="token string">'awsl'</span><span class="token punctuation">,</span><span class="token string">'gkd'</span><span class="token punctuation">]</span></code></pre>
 <p>这时变量<code>alpha</code> 就是一个list</p>
 <p>用len()函数可以获得list元素的个数:</p>
-<pre class=" language-python"><code class="language-python">len<span class="token punctuation">(</span>alpha<span class="token punctuation">)</span>
-</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token builtin">len</span><span class="token punctuation">(</span>alpha<span class="token punctuation">)</span></code></pre>
 <p>输出： <code>3</code></p>
 <p>用索引来访问list中指定位置的元素，索引从0开始</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>alpha<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>alpha<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>输出： <code>wtf</code></p>
 <p>索引也可以倒着来，最后一个索引是-1</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>alpha<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>alpha<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>输出： <code>gkd</code></p>
 <p>注意索引不要超出范围，也就是不要越界</p>
 <h3 id="元素操作"><a href="#元素操作" class="headerlink" title="元素操作"></a>元素操作</h3><ul>
@@ -1827,19 +1815,17 @@ world'''</span><span class="token punctuation">)</span>
 <li>访问元素：<br><code>print(alpha[1])</code><br>输出<br><code>114514</code></li>
 </ul>
 <p>嵌套元素的访问方法：<br>先设</p>
-<pre class=" language-python"><code class="language-python">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'套娃一'</span><span class="token punctuation">,</span><span class="token string">'占个位置'</span><span class="token punctuation">]</span>
-list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'套娃二'</span><span class="token punctuation">,</span>list1<span class="token punctuation">,</span><span class="token string">'蹲个坑'</span><span class="token punctuation">]</span>
-</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'套娃一'</span><span class="token punctuation">,</span><span class="token string">'占个位置'</span><span class="token punctuation">]</span>
+list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'套娃二'</span><span class="token punctuation">,</span>list1<span class="token punctuation">,</span><span class="token string">'蹲个坑'</span><span class="token punctuation">]</span></code></pre>
 <p>若要从<code>list2</code>中取出’套娃一’，则</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>list2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> 
-</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>list2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> </code></pre>
+
 <p>这种list被称为二维数组，还有三维四维五维…以此类推<br><del>明明就是套娃</del></p>
 <h2 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h2><blockquote>
 <p>另一种有序列表叫元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改</p>
 </blockquote>
-<pre class=" language-python"><code class="language-python">now <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'no'</span><span class="token punctuation">,</span><span class="token string">'omg'</span><span class="token punctuation">,</span><span class="token string">'nice'</span><span class="token punctuation">]</span>
-delta <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'fxxk'</span><span class="token punctuation">,</span><span class="token string">'me'</span><span class="token punctuation">,</span>now<span class="token punctuation">)</span>
-</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">now <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'no'</span><span class="token punctuation">,</span><span class="token string">'omg'</span><span class="token punctuation">,</span><span class="token string">'nice'</span><span class="token punctuation">]</span>
+delta <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'fxxk'</span><span class="token punctuation">,</span><span class="token string">'me'</span><span class="token punctuation">,</span>now<span class="token punctuation">)</span></code></pre>
 <p>在上面的代码中，<code>now</code>是list，<code>delta</code>是tuple</p>
 <p><strong>虽然tuple被称为‘不可修改’，但实际上指的是元素的指向不可修改，在上述代码中，如果你修改了<code>now</code>的元素，<code>delta</code>中的’<code>now</code>‘元素的内容也会随之改变，但变得不是tuple，而是<code>now</code>这个list</strong></p>
 <p>由于tuple不可修改的特性，它比list更安全</p>
@@ -1859,7 +1845,7 @@ delta <span class="token operator">=</span> <span class="token punctuation">(</s
 <p>list和tuple是Python内置的有序集合，一个可变，一个不可变。根据需要来选择使用它们。</p>
 </blockquote>
 <h1 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h1><p><del>有些博文，写着写着就变成了复制粘贴</del></p>
-<p> 部分内容引用自 <a href="https://www.liaoxuefeng.com/" target="_blank" rel="noopener">廖雪峰的官方网站</a></p>
+<p> 部分内容引用自 <a href="https://www.liaoxuefeng.com/">廖雪峰的官方网站</a></p>
 <p>快开学了，不知道该乐还是悲</p>
 ]]></content>
       <categories>
@@ -1882,87 +1868,87 @@ delta <span class="token operator">=</span> <span class="token punctuation">(</s
 <li>pow(x,y)</li>
 </ul>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>1</p>
-<pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-b <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-c <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-p <span class="token operator">=</span> pow<span class="token punctuation">(</span><span class="token punctuation">(</span>c<span class="token operator">**</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">3</span><span class="token operator">*</span>b<span class="token operator">+</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+<pre class="language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+b <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+c <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+p <span class="token operator">=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span><span class="token punctuation">(</span>c<span class="token operator">**</span><span class="token number">2</span><span class="token operator">-</span><span class="token number">3</span><span class="token operator">*</span>b<span class="token operator">+</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
 q <span class="token operator">=</span> <span class="token number">5</span><span class="token operator">*</span>a<span class="token operator">*</span>c
 t<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span>p<span class="token operator">*</span>q
-<span class="token keyword">print</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span>
-</code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span></code></pre>
+
 <p>2</p>
-<pre class=" language-python"><code class="language-python">s <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-python" data-language="python"><code class="language-python">s <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 i <span class="token operator">=</span> <span class="token number">1</span>
-s <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">*</span>s<span class="token number">-1</span>
+s <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">*</span>s<span class="token operator">-</span><span class="token number">1</span>
 <span class="token keyword">while</span> i<span class="token operator">>=</span><span class="token number">3</span><span class="token punctuation">:</span>
     i<span class="token operator">+=</span><span class="token number">1</span>
 <span class="token keyword">else</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-</code></pre>
-<p>3</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> math
+    <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span></code></pre>
 
-x <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<p>3</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> math
+
+x <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token keyword">if</span> x<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">:</span>
     y <span class="token operator">=</span> math<span class="token punctuation">.</span>log<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 <span class="token keyword">else</span><span class="token punctuation">:</span>
     y <span class="token operator">=</span> math<span class="token punctuation">.</span>exp<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span>
-</code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span></code></pre>
+
 <p>4</p>
-<pre class=" language-python"><code class="language-python">m <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-n <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-python" data-language="python"><code class="language-python">m <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+n <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 i <span class="token operator">=</span> <span class="token number">1</span>
 m <span class="token operator">=</span> m<span class="token operator">+</span><span class="token number">2</span><span class="token operator">*</span>i
-n <span class="token operator">=</span> n<span class="token number">-2</span><span class="token operator">*</span>i
+n <span class="token operator">=</span> n<span class="token operator">-</span><span class="token number">2</span><span class="token operator">*</span>i
 <span class="token keyword">while</span> m<span class="token operator">&lt;=</span>n<span class="token punctuation">:</span>
     i<span class="token operator">+=</span><span class="token number">1</span>
     m <span class="token operator">=</span> m<span class="token operator">+</span><span class="token number">2</span><span class="token operator">*</span>i
-    n <span class="token operator">=</span> n<span class="token number">-2</span><span class="token operator">*</span>i
+    n <span class="token operator">=</span> n<span class="token operator">-</span><span class="token number">2</span><span class="token operator">*</span>i
 <span class="token keyword">else</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-</code></pre>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span></code></pre>
+
 <p>5</p>
-<pre class=" language-python"><code class="language-python">s <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">-</span> <span class="token number">10</span>
+<pre class="language-python" data-language="python"><code class="language-python">s <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">-</span> <span class="token number">10</span>
 i <span class="token operator">=</span> <span class="token number">1</span>
 <span class="token keyword">while</span> i<span class="token operator">></span><span class="token number">5</span><span class="token punctuation">:</span>
     s<span class="token operator">=</span>s<span class="token operator">+</span>i
     i<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span>
 <span class="token keyword">else</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-</code></pre>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span></code></pre>
+
 <p>6</p>
-<pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">-</span> <span class="token number">5</span>
+<pre class="language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">-</span> <span class="token number">5</span>
 b <span class="token operator">=</span> <span class="token number">3</span>
 a <span class="token operator">=</span> a <span class="token operator">*</span> b
 b <span class="token operator">=</span> a <span class="token operator">-</span> b
-<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token operator">-</span>b<span class="token punctuation">)</span>
-</code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token operator">-</span>b<span class="token punctuation">)</span></code></pre>
+
 <p>7</p>
-<pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">5</span>
+<pre class="language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">5</span>
 b <span class="token operator">=</span> <span class="token number">7</span>
 c <span class="token operator">=</span> <span class="token number">4</span>
 s <span class="token operator">=</span> a <span class="token operator">+</span> b <span class="token operator">+</span> c
-<span class="token keyword">print</span><span class="token punctuation">(</span>s <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">)</span>
-</code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">)</span></code></pre>
+
 <p>8</p>
-<pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">3</span>
+<pre class="language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">3</span>
 b <span class="token operator">=</span> <span class="token number">5</span>
 x <span class="token operator">=</span> a
 a <span class="token operator">=</span> b
 b <span class="token operator">=</span> x
-<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span>
-</code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span></code></pre>
+
 <p>9</p>
-<pre class=" language-python"><code class="language-python">x <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'x= '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'x= '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token keyword">if</span> x <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">-</span> <span class="token number">3</span><span class="token punctuation">:</span>
     y <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">1</span>
 <span class="token keyword">else</span><span class="token punctuation">:</span>
     y <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">-</span> x <span class="token operator">-</span> <span class="token number">5</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span>
-</code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span></code></pre>
+
 <p>10</p>
-<pre class=" language-python"><code class="language-python">n <span class="token operator">=</span> <span class="token number">1</span>
+<pre class="language-python" data-language="python"><code class="language-python">n <span class="token operator">=</span> <span class="token number">1</span>
 m <span class="token operator">=</span> <span class="token number">0</span>
 s <span class="token operator">=</span> <span class="token number">0</span>
 m <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> n <span class="token operator">-</span> <span class="token number">1</span>
@@ -1972,10 +1958,10 @@ s <span class="token operator">=</span> <span class="token number">2</span> <spa
     m <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> n <span class="token operator">-</span> <span class="token number">1</span>
     s <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> s <span class="token operator">+</span> m
 <span class="token keyword">else</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-</code></pre>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span></code></pre>
+
 <p>11</p>
-<pre class=" language-python"><code class="language-python">T <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-python" data-language="python"><code class="language-python">T <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 t <span class="token operator">=</span> <span class="token number">1</span>
 N <span class="token operator">=</span> <span class="token number">1000</span>
 S <span class="token operator">=</span> <span class="token number">0</span>
@@ -1984,19 +1970,19 @@ S <span class="token operator">=</span> <span class="token number">0</span>
     N <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">-</span> <span class="token number">0.1</span> <span class="token operator">*</span> N
     t <span class="token operator">=</span> t <span class="token operator">+</span> <span class="token number">1</span>
 <span class="token keyword">else</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span>
-</code></pre>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span></code></pre>
+
 <p>12</p>
-<pre class=" language-python"><code class="language-python">s <span class="token operator">=</span> <span class="token number">1</span>
-a<span class="token operator">=</span>int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="language-python" data-language="python"><code class="language-python">s <span class="token operator">=</span> <span class="token number">1</span>
+a<span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 i <span class="token operator">=</span> <span class="token number">3</span>
 <span class="token keyword">while</span> i <span class="token operator">&lt;</span> a<span class="token punctuation">:</span>
     s <span class="token operator">=</span> s <span class="token operator">*</span> i
     i <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">2</span>
 <span class="token keyword">else</span><span class="token punctuation">:</span>
     <span class="token keyword">pass</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-</code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span></code></pre>
+
 <h2 id="废话"><a href="#废话" class="headerlink" title="废话"></a>废话</h2><p>只是把高中数学课本必修三算法基础中的几道练习题用python写了出来而已<br><img src="https://pic.downk.cc/item/5e7b496b504f4bcb04fd914d.jpg" loading="lazy"></p>
 ]]></content>
       <categories>
@@ -2009,7 +1995,7 @@ i <span class="token operator">=</span> <span class="token number">3</span>
   <entry>
     <title>搬家了！</title>
     <url>/banjialiao.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原域名为 <a href="https://cos0.xyz/" target="_blank" rel="noopener">https://cos0.xyz</a> ，以及<a href="https://cosin0.ml/" target="_blank" rel="noopener">https://cosin0.ml</a> 和 <a href="http://www.cos0.xyz/" target="_blank" rel="noopener">www.cos0.xyz</a><br>现已全部重定向至新域名 <a href="https://krau.top/">https://krau.top</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>原域名为 <a href="https://cos0.xyz/">https://cos0.xyz</a> ，以及<a href="https://cosin0.ml/">https://cosin0.ml</a> 和 <a href="http://www.cos0.xyz/">www.cos0.xyz</a><br>现已全部重定向至新域名 <a href="https://krau.top/">https://krau.top</a></p>
 <p>新域名已续费至三年后，到那时本人应该高中毕业</p>
 <p>博主以后就叫krau，至于这个名字是怎么来的有什么含义……说来话长</p>
 <p>总之欢迎大佬们继续来访</p>
@@ -2113,12 +2099,12 @@ i <span class="token operator">=</span> <span class="token number">3</span>
   <entry>
     <title>博客更新日志</title>
     <url>/bokegengxinrizhi.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="新主题"><a href="#新主题" class="headerlink" title="新主题"></a>新主题</h3><p>原主题为 <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">matery</a></p>
-<p>现使用 <a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener">butterfly</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="新主题"><a href="#新主题" class="headerlink" title="新主题"></a>新主题</h3><p>原主题为 <a href="https://github.com/blinkfox/hexo-theme-matery">matery</a></p>
+<p>现使用 <a href="https://github.com/jerryc127/hexo-theme-butterfly">butterfly</a></p>
 <p>为什么换了主题？</p>
 <p>主要原因是看上了这个butterfly的随系统切换夜间模式功能，其次想换个口味，而且之前的matery由于折腾太多花里胡哨的特效了导致首次页面打开很卡。</p>
 <h3 id="关于部署"><a href="#关于部署" class="headerlink" title="关于部署"></a>关于部署</h3><p>原先是使用了github+coding pages双部署，可是github访问慢，coding时常die，体验并不好，于是又部署到了gitee上…</p>
-<p>gitee访问地址： <a href="https://cos0.gitee.io/" target="_blank" rel="noopener">https://cos0.gitee.io</a></p>
+<p>gitee访问地址： <a href="https://cos0.gitee.io/">https://cos0.gitee.io</a></p>
 <p>另外，由于站内引用了部分非https协议的资源，访问时可能提示不安全，忽略即可，本站保证不会窃取来自您的任何信息</p>
 <h3 id="其他废话"><a href="#其他废话" class="headerlink" title="其他废话"></a>其他废话</h3><p>过段时间本站可能要改头换面（改名字和域名），先提前交代一下</p>
 ]]></content>
@@ -2130,18 +2116,18 @@ i <span class="token operator">=</span> <span class="token number">3</span>
     <title>小学生都会系列--使用python计算任意三角形面积</title>
     <url>/xiaoxueshengduhuixilieshiyongpythonjisuanrenyisanjiaoxingmianji.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>python利用<a href="%5Bhttps://baike.baidu.com/item/%E6%B5%B7%E4%BC%A6%E5%85%AC%E5%BC%8F%5D(https://baike.baidu.com/item/%E6%B5%B7%E4%BC%A6%E5%85%AC%E5%BC%8F)">海伦公式</a>计算任意三角形面积</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#边长输入</span>
-x <span class="token operator">=</span> float<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'第一边长：'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-y <span class="token operator">=</span> float<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'第二边长: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-z <span class="token operator">=</span> float<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'第三边长：'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#判断是否为三角形，即任意两边之和大于第三边</span>
-<span class="token keyword">if</span> x<span class="token operator">+</span>y<span class="token operator">&lt;</span>z <span class="token operator">or</span> y<span class="token operator">+</span>z<span class="token operator">&lt;</span>x <span class="token operator">or</span> x<span class="token operator">+</span>z<span class="token operator">&lt;</span>y<span class="token punctuation">:</span>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="language-python" data-language="python"><code class="language-python"><span class="token comment">#边长输入</span>
+x <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'第一边长：'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'第二边长: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+z <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'第三边长：'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">#判断是否为三角形，即任意两边之和大于第三边</span>
+<span class="token keyword">if</span> x<span class="token operator">+</span>y<span class="token operator">&lt;</span>z <span class="token keyword">or</span> y<span class="token operator">+</span>z<span class="token operator">&lt;</span>x <span class="token keyword">or</span> x<span class="token operator">+</span>z<span class="token operator">&lt;</span>y<span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'三边不能构成三角形：'</span><span class="token punctuation">)</span>
 <span class="token keyword">else</span><span class="token punctuation">:</span>
     m <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token operator">+</span>y<span class="token operator">+</span>z<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span>
     s <span class="token operator">=</span> <span class="token punctuation">(</span>m<span class="token operator">*</span><span class="token punctuation">(</span>m<span class="token operator">-</span>x<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>m<span class="token operator">-</span>y<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>m<span class="token operator">-</span>z<span class="token punctuation">)</span><span class="token operator">**</span><span class="token number">0.5</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'三角形面积为：%0.2f'</span> <span class="token operator">%</span> s<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#保留两位小数，输出计算结果</span>
-</code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'三角形面积为：%0.2f'</span> <span class="token operator">%</span> s<span class="token punctuation">)</span><span class="token comment">#保留两位小数，输出计算结果</span></code></pre>
+
 <p>极其简单的一串代码。而且事实上，它不够严密，例如三角形边长应为正值数字，而代码中没有对此限定。</p>
 ]]></content>
       <categories>
@@ -2174,10 +2160,10 @@ z <span class="token operator">=</span> float<span class="token punctuation">(</
 <h3 id="Minecraft中的红石元件特性"><a href="#Minecraft中的红石元件特性" class="headerlink" title="Minecraft中的红石元件特性"></a>Minecraft中的红石元件特性</h3><blockquote>
 <p><em>二极管</em> ：二极管阻止电流在电路中倒流。</p>
 <p>当需要隔离输入线以避免反馈，或是从两个输入合并为一个（如在上述“或门”），这二极管显得非常有用。</p>
-<p>二极管通常可分为三种形态：占一个空间的<a href="https://minecraft-zh.gamepedia.com/%E7%BA%A2%E7%9F%B3%E4%B8%AD%E7%BB%A7%E5%99%A8" target="_blank" rel="noopener">红石中继器</a> 延时1至4个刻度；占三个空间的<a href="https://minecraft-zh.gamepedia.com/%E7%BA%A2%E7%9F%B3%E7%81%AB%E6%8A%8A" target="_blank" rel="noopener">红石火把</a>中继器（也称为经典或传统中继器）延时2个刻度，与及占两个空间的<a href="https://minecraft-zh.gamepedia.com/%E8%8D%A7%E7%9F%B3" target="_blank" rel="noopener">荧石</a>二极管不会延时</p>
+<p>二极管通常可分为三种形态：占一个空间的<a href="https://minecraft-zh.gamepedia.com/%E7%BA%A2%E7%9F%B3%E4%B8%AD%E7%BB%A7%E5%99%A8">红石中继器</a> 延时1至4个刻度；占三个空间的<a href="https://minecraft-zh.gamepedia.com/%E7%BA%A2%E7%9F%B3%E7%81%AB%E6%8A%8A">红石火把</a>中继器（也称为经典或传统中继器）延时2个刻度，与及占两个空间的<a href="https://minecraft-zh.gamepedia.com/%E8%8D%A7%E7%9F%B3">荧石</a>二极管不会延时</p>
 </blockquote>
 <blockquote>
-<p><strong>红石中继器</strong> ：基于<a href="https://minecraft-zh.gamepedia.com/%E7%BA%A2%E7%9F%B3%E4%B8%AD%E7%BB%A7%E5%99%A8" target="_blank" rel="noopener">红石中继器</a>的二极管制作是最简单方便的，只需将一个红石中继器垂直放置在红石电路即可。</p>
+<p><strong>红石中继器</strong> ：基于<a href="https://minecraft-zh.gamepedia.com/%E7%BA%A2%E7%9F%B3%E4%B8%AD%E7%BB%A7%E5%99%A8">红石中继器</a>的二极管制作是最简单方便的，只需将一个红石中继器垂直放置在红石电路即可。</p>
 <p>此二极管电路完成后有 1 个刻度的延时，并可调至最多延时4个刻度。</p>
 <p>下图示范了这种简单的架构。</p>
 <p><img src="https://gamepedia.cursecdn.com/minecraft_zh_gamepedia/thumb/7/7a/Repeater_bridge.png/150px-Repeater_bridge.png?version=fc8715206f3b57b74667695c989662c0" alt="红石中继器" loading="lazy"></p>
@@ -2189,7 +2175,7 @@ z <span class="token operator">=</span> float<span class="token punctuation">(</
 <p>制作方法是两道“非门”，每道“非门”都需要一个固体方块（不包括玻璃、荧石、树叶）连接一个红石火把。</p>
 <p>在靠近电路输入的“非门”，红石火把放置在固体方块的顶部；而靠近电路输出的“非门”，红石火把放置在固体方块的侧面。</p>
 <p>第二个红石火把因为受到第一个火把产生的电流影响而初始熄灭（注意这将会有一次短暂的脉冲）。</p>
-<p>若有需要，两个“非门”之间可以放置<a href="https://minecraft-zh.gamepedia.com/%E7%BA%A2%E7%9F%B3%E7%B2%89" target="_blank" rel="noopener">红石粉</a>延长电路（最多15格空间）。</p>
+<p>若有需要，两个“非门”之间可以放置<a href="https://minecraft-zh.gamepedia.com/%E7%BA%A2%E7%9F%B3%E7%B2%89">红石粉</a>延长电路（最多15格空间）。</p>
 <p><img src="https://gamepedia.cursecdn.com/minecraft_zh_gamepedia/thumb/6/6a/RedstoneInverter.png/300px-RedstoneInverter.png?version=7051d0947e7cf0796341ddc9e86de267" loading="lazy"></p>
 </blockquote>
 <h3 id="Minecraft中的红石逻辑门演示"><a href="#Minecraft中的红石逻辑门演示" class="headerlink" title="Minecraft中的红石逻辑门演示"></a>Minecraft中的红石逻辑门演示</h3><p><img src="https://s1.ax1x.com/2020/03/20/86oGkV.png" alt="非门" loading="lazy"></p>
@@ -2213,10 +2199,10 @@ z <span class="token operator">=</span> float<span class="token punctuation">(</
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>Alpha通道</strong>在计算机图形学中是一个常见术语，在Ps，Ae等动画创作类软件中常有身影，那么它究竟为何物？</p>
 <p>身为非专业人士不需要特别深入了解，但需要知道它的基本概念和应用</p>
 <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote>
-<p><a href="https://www.cnblogs.com/suogasus/p/5311264.html" target="_blank" rel="noopener">来自东篱雪 - 博客园</a> ：Alpha通道是计算机图形学中的术语，指的是特别的通道，意思是“非彩色”通道，主要是用来保存选区和编辑选区。</p>
+<p><a href="https://www.cnblogs.com/suogasus/p/5311264.html">来自东篱雪 - 博客园</a> ：Alpha通道是计算机图形学中的术语，指的是特别的通道，意思是“非彩色”通道，主要是用来保存选区和编辑选区。</p>
 </blockquote>
 <blockquote>
-<p><a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E6%B3%95%E9%80%9A%E9%81%93" target="_blank" rel="noopener">来自维基百科</a> ： 阿尔法通道（α Channel或Alpha Channel）是指一张图片的透明和半透明度。</p>
+<p><a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E6%B3%95%E9%80%9A%E9%81%93">来自维基百科</a> ： 阿尔法通道（α Channel或Alpha Channel）是指一张图片的透明和半透明度。</p>
 </blockquote>
 <p>图像一般有RGB三个彩色通道（red，green，blue），这种图像被称为RGB图像。而Alpha通道并不属于彩色通道，它是用来存储图像的透明&#x2F;半透明信息的，包含有alpha通道的图像通常被称为RGB&#x2F;A图像。</p>
 <p><strong>但需要注意的是，alpha通道只是最终的作用效果表现为透明度，它本质上和透明度没有关系。</strong></p>
@@ -2243,9 +2229,9 @@ z <span class="token operator">=</span> float<span class="token punctuation">(</
 <p> 这种风格的特效视频非常多，实际上方法基本就是一种，那就是alpha通道的巧妙运用。</p>
 <p> <del>有空就写教程，敬请期待</del></p>
 <h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ol>
-<li><p><a href="https://www.cnblogs.com/suogasus/p/5311264.html" target="_blank" rel="noopener">来自东篱雪 - 博客园：一个也许很傻的问题,在图像处理中alpha到底是什么？</a></p>
+<li><p><a href="https://www.cnblogs.com/suogasus/p/5311264.html">来自东篱雪 - 博客园：一个也许很傻的问题,在图像处理中alpha到底是什么？</a></p>
 </li>
-<li><p><a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E6%B3%95%E9%80%9A%E9%81%93" target="_blank" rel="noopener">来自维基百科：alpha通道</a></p>
+<li><p><a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E6%B3%95%E9%80%9A%E9%81%93">来自维基百科：alpha通道</a></p>
 </li>
 </ol>
 <p><del>又氵一篇，真好</del></p>
@@ -2263,7 +2249,7 @@ z <span class="token operator">=</span> float<span class="token punctuation">(</
     <url>/benzhanyijierumengicpbeian20203939hao.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>前两天见到某位兄台在搞这个</p>
 <p>于是也整了个</p>
-<p><a href="https://imgchr.com/i/83U5ef" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/15/83U5ef.png" loading="lazy"></a></p>
+<p><a href="https://imgchr.com/i/83U5ef"><img src="https://s1.ax1x.com/2020/03/15/83U5ef.png" loading="lazy"></a></p>
 <p>在页脚已经可以看到了</p>
 <p>（似乎并没有什么卵用）</p>
 <hr>
@@ -2312,7 +2298,7 @@ z <span class="token operator">=</span> float<span class="token punctuation">(</
 <p>~~ 这么多真的看的完吗 ~~</p>
 <p>对最近的打斗推理勇士什么的不太感冒，所以除了 恋爱小行星 基本是在补老番。</p>
 <h3 id="折腾博客"><a href="#折腾博客" class="headerlink" title="折腾博客"></a>折腾博客</h3><p>我的博客是使用coding+github双部署的，然而github在境内半死不活，coding又众所周知经常扑街，所以折腾了个cdn</p>
-<p>本来是py的 <a href="https://leao.blog/" target="_blank" rel="noopener">Leao</a> 这位大佬自建的cdn的，结果发现有一点点巨大的问题，会出现重定向过多无法访问的问题，虽然我知道这不怪cdn ~~ 但我就是想找个理由抛弃他 ~~ 。然后在自己的主题文件中发现原来这主题内置支持cdn，于是就搞上啦。</p>
+<p>本来是py的 <a href="https://leao.blog/">Leao</a> 这位大佬自建的cdn的，结果发现有一点点巨大的问题，会出现重定向过多无法访问的问题，虽然我知道这不怪cdn ~~ 但我就是想找个理由抛弃他 ~~ 。然后在自己的主题文件中发现原来这主题内置支持cdn，于是就搞上啦。</p>
 <p>不过又有一些其他的小问题，我原先自定义的“筑紫A丸”字体无法生效，折腾很长时间无果，目前先把这个问题记录一下。</p>
 <p>还搞了百度和谷歌的SEO，但百度真的好慢，还没收录</p>
 <h3 id="水完了"><a href="#水完了" class="headerlink" title="水完了"></a>水完了</h3><p>真的水完了</p>
@@ -2331,30 +2317,29 @@ z <span class="token operator">=</span> float<span class="token punctuation">(</
     <url>/shiyongpythonpiliangxiazaiwenbenzhongdezhuxingwenjianlianjie.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="简介说明"><a href="#简介说明" class="headerlink" title="简介说明"></a>简介说明</h4><h2 id="非完全原创"><a href="#非完全原创" class="headerlink" title="非完全原创"></a>非完全原创</h2><p>使用Python从一个包含大量多行链接的文本文件中，批量下载那些链接中的内容</p>
 <p>目前直接使用可能下载速度并不快，正在研究如何多线程下载</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#从一个文本文件中读取链接并下载</span>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre class="language-python" data-language="python"><code class="language-python"><span class="token comment">#从一个文本文件中读取链接并下载</span>
 <span class="token keyword">from</span> urllib<span class="token punctuation">.</span>request <span class="token keyword">import</span> urlretrieve
 <span class="token keyword">import</span> os
 
 <span class="token keyword">def</span> <span class="token function">download</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    categories <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'hentai'</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#将此处的"hentai"改为你的文本前名，如233.txt，就改成'233'</span>
+    categories <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'hentai'</span><span class="token punctuation">]</span> <span class="token comment">#将此处的"hentai"改为你的文本前名，如233.txt，就改成'233'</span>
     <span class="token keyword">for</span> category <span class="token keyword">in</span> categories<span class="token punctuation">:</span>
-        os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>r<span class="token string">'E:/patu/tu/%s'</span> <span class="token operator">%</span> category<span class="token punctuation">,</span> exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#设置文件保存路径</span>
-        <span class="token keyword">with</span> open<span class="token punctuation">(</span>r<span class="token string">'E:/patu/url/%s.txt'</span> <span class="token operator">%</span> category<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> file<span class="token punctuation">:</span><span class="token comment" spellcheck="true">#文本读取路径</span>
-            urls <span class="token operator">=</span> file<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            n_urls <span class="token operator">=</span> len<span class="token punctuation">(</span>urls<span class="token punctuation">)</span>
-            <span class="token keyword">for</span> i<span class="token punctuation">,</span> url <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>urls<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                q <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">0</span><span class="token operator">+</span><span class="token number">233</span><span class="token operator">+</span><span class="token number">666</span><span class="token operator">+</span><span class="token number">111</span><span class="token comment" spellcheck="true">#用来给文件命名，随便写个</span>
+        os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span><span class="token string">r'E:/patu/tu/%s'</span> <span class="token operator">%</span> category<span class="token punctuation">,</span> exist_ok<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token comment">#设置文件保存路径</span>
+        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">r'E:/patu/url/%s.txt'</span> <span class="token operator">%</span> category<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span><span class="token comment">#文本读取路径</span>
+            urls <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            n_urls <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>urls<span class="token punctuation">)</span>
+            <span class="token keyword">for</span> i<span class="token punctuation">,</span> url <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>urls<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                q <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">0</span><span class="token operator">+</span><span class="token number">233</span><span class="token operator">+</span><span class="token number">666</span><span class="token operator">+</span><span class="token number">111</span><span class="token comment">#用来给文件命名，随便写个</span>
                 <span class="token keyword">try</span><span class="token punctuation">:</span>
-                     <span class="token comment" spellcheck="true"># 请求下载图片</span>
-                     urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span>r<span class="token string">'E:/patu/tu/%d.jpg'</span> <span class="token operator">%</span>q<span class="token punctuation">)</span>
-                     <span class="token comment" spellcheck="true">#截取url最后一个字节给图片命名</span>
+                     <span class="token comment"># 请求下载图片</span>
+                     urlretrieve<span class="token punctuation">(</span>url<span class="token punctuation">,</span><span class="token string">r'E:/patu/tu/%d.jpg'</span> <span class="token operator">%</span>q<span class="token punctuation">)</span>
+                     <span class="token comment">#截取url最后一个字节给图片命名</span>
                      <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s %i/%i'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>category<span class="token punctuation">,</span> i<span class="token punctuation">,</span> n_urls<span class="token punctuation">)</span><span class="token punctuation">)</span>
-                     <span class="token keyword">print</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#成功获取后输出文件链接</span>
+                     <span class="token keyword">print</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token comment">#成功获取后输出文件链接</span>
                 <span class="token keyword">except</span><span class="token punctuation">:</span>
-                     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s %i/%i'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>category<span class="token punctuation">,</span> i<span class="token punctuation">,</span> n_urls<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'no image'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#未能获取后输出no image提示</span>
+                     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s %i/%i'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>category<span class="token punctuation">,</span> i<span class="token punctuation">,</span> n_urls<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'no image'</span><span class="token punctuation">)</span><span class="token comment">#未能获取后输出no image提示</span>
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    download<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+    download<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <hr>
 <p>代码分享 X<br>测试花里胡哨的高亮插件 X<br>单纯就是来氵的 √ doge</p>
 <blockquote>
@@ -2373,7 +2358,7 @@ z <span class="token operator">=</span> float<span class="token punctuation">(</
     <url>/jiyicitaowangkechuqufangfengzheng.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在家发霉了这么久，每天钉钉钉钉。终于，我忍不住出去转悠了</p>
 <p>作为一个平时的死宅，几乎从不主动出门的说…..</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <hr>
 <h4 id="放风筝"><a href="#放风筝" class="headerlink" title="放风筝~"></a>放风筝~</h4><p>天气正好，于是拿出 ~~ 可能是地摊捡的芭比娃娃 ~~ 风筝来放<br><img src="https://s1.ax1x.com/2020/03/13/8K4x2T.jpg" alt="没费多大劲就飞起来啦" loading="lazy"></p>
@@ -2414,17 +2399,17 @@ z <span class="token operator">=</span> float<span class="token punctuation">(</
     <title>涩图</title>
     <url>/setu.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>各种杂七杂八的测试</p>
- <a id="more"></a> 
+ <span id="more"></span> 
 
 <p>骗你的这里并没有涩图</p>
 <h5 id="API"><a href="#API" class="headerlink" title="API"></a>API</h5><ul>
 <li>1<img src="http://www.dmoe.cc/random.php" alt="www.dmoe.cc/random.php" loading="lazy"></li>
 <li>2<img src="https://api.yimian.xyz/img" alt="https://api.yimian.xyz/img" loading="lazy"></li>
 <li>3<img src="https://api.yimian.xyz/img?type=moe&size=1920x1080" alt="https://api.yimian.xyz/img?type=moe&amp;size=1920x1080" loading="lazy"></li>
-<li>4 <a href="https://acg.xydwz.cn/api/api.php" target="_blank" rel="noopener">https://acg.xydwz.cn/api/api.php</a> <img src="https://acg.xydwz.cn/api/api.php" loading="lazy"></li>
+<li>4 <a href="https://acg.xydwz.cn/api/api.php">https://acg.xydwz.cn/api/api.php</a> <img src="https://acg.xydwz.cn/api/api.php" loading="lazy"></li>
 <li>5<img src="https://api.yimian.xyz/img?type=head" alt="https://api.yimian.xyz/img?type=head 随机头像" loading="lazy"></li>
-<li>6 <a href="https://api.lolicon.app/setu/" target="_blank" rel="noopener">setu</a></li>
-<li>7<a href="https://api.paugram.com/wallpaper" target="_blank" rel="noopener">https://api.paugram.com/wallpaper</a></li>
+<li>6 <a href="https://api.lolicon.app/setu/">setu</a></li>
+<li>7<a href="https://api.paugram.com/wallpaper">https://api.paugram.com/wallpaper</a></li>
 <li></li>
 </ul>
 <h5 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h5><ul>
@@ -2439,9 +2424,9 @@ z <span class="token operator">=</span> float<span class="token punctuation">(</
 <p><em>从来没有真正的绝境</em>，<strong>只有心灵的迷途</strong></p>
 </blockquote>
 <p><code>hi = &quot;hello world&quot;</code><br><code> print(hi)</code></p>
-<pre class=" language-python"><code class="language-python">h1 <span class="token operator">=</span> <span class="token string">"hi world"</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>hi<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">h1 <span class="token operator">=</span> <span class="token string">"hi world"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>hi<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
 <h5 id="Tag-Plugins"><a href="#Tag-Plugins" class="headerlink" title="Tag Plugins"></a>Tag Plugins</h5><p>这玩意干嘛用的 貌似能插入youtube视频</p>
 <p>插个bilibili试试</p>
 <iframe src="//player.bilibili.com/player.html?aid=90038383&cid=153865655&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:640px; height:460px"> </iframe>
@@ -2473,22 +2458,22 @@ z <span class="token operator">=</span> float<span class="token punctuation">(</
     <title>Hello World</title>
     <url>/helloworld.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Hi World</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="关于本站"><a href="#关于本站" class="headerlink" title="关于本站"></a>关于本站</h2><ul>
-<li><del>本站使用hexo+github+coding搭建，域名：<a href="https://cos0.xyz/" target="_blank" rel="noopener">https://cos0.xyz</a></del></li>
-<li><del>境内可以使用<a href="http://cosin0.ml/" target="_blank" rel="noopener">http://cosin0.ml</a> 访问以加快访问速度</del></li>
+<li><del>本站使用hexo+github+coding搭建，域名：<a href="https://cos0.xyz/">https://cos0.xyz</a></del></li>
+<li><del>境内可以使用<a href="http://cosin0.ml/">http://cosin0.ml</a> 访问以加快访问速度</del></li>
 <li>首页图片，文章特色图等调用多个高清图片api，每次刷新都会变化</li>
 <li>本站使用了Valine评论系统，支持markdown语法</li>
 <li>本站使用hexo搭建至github，coding，gitee</li>
 </ul>
 <p>域名：</p>
 <p><a href="https://krau.top/">https://krau.top</a></p>
-<p><a href="https://krau.gitee.io/" target="_blank" rel="noopener">https://krau.gitee.io/</a></p>
-<p>原域名：<a href="https://cos0.xyz/" target="_blank" rel="noopener">https://cos0.xyz</a></p>
+<p><a href="https://krau.gitee.io/">https://krau.gitee.io/</a></p>
+<p>原域名：<a href="https://cos0.xyz/">https://cos0.xyz</a></p>
 <hr>
-<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><p>TG：<a href="https://t.me/cosinzero" target="_blank" rel="noopener">@cosinzero</a></p>
-<p>bilibili：<a href="https://space.bilibili.com/296036767" target="_blank" rel="noopener">@誓约void</a></p>
+<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><p>TG：<a href="https://t.me/cosinzero">@cosinzero</a></p>
+<p>bilibili：<a href="https://space.bilibili.com/296036767">@誓约void</a></p>
 <hr>
 <h2 id="小广告"><a href="#小广告" class="headerlink" title="小广告"></a>小广告</h2><ul>
 <li>欢迎来Q群里交流（玩耍），什么都可以的哦<br>1075445745</li>
