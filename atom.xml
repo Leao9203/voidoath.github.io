@@ -334,28 +334,6 @@
   </entry>
   
   <entry>
-    <title>复活</title>
-    <link href="http://krau.top/fuhuo.html"/>
-    <id>http://krau.top/fuhuo.html</id>
-    <published>2020-05-16T09:36:54.000Z</published>
-    <updated>2020-05-16T11:23:53.510Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>从4.27被囚禁）到现在</p><p>同学见面都说在家没学<br>考试了两次才明白真正没学的只有自己</p><p>在校的三周里整天戴着口罩<br>听说美国感染人数破了百万</p><p>没有网络的三周<br>终于体会到与世隔绝的痛苦<br>才明白自己是个彻底的网瘾少年（？？</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    <category term="日常" scheme="http://krau.top/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>HELLO WORLD</title>
     <link href="http://krau.top/helloworld0.html"/>
     <id>http://krau.top/helloworld0.html</id>
@@ -442,6 +420,27 @@
     <category term="安利" scheme="http://krau.top/tags/%E5%AE%89%E5%88%A9/"/>
     
     <category term="图床" scheme="http://krau.top/tags/%E5%9B%BE%E5%BA%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于pandownload开发者被抓的一点看法</title>
+    <link href="http://krau.top/pdbeizhua.html"/>
+    <id>http://krau.top/pdbeizhua.html</id>
+    <published>2020-04-16T22:31:38.000Z</published>
+    <updated>2020-04-20T12:45:48.580Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>2020年04月15日，小有名气的第三方百度网盘下载器<code>pandownload</code>开发者被抓，警方对事件的描述如下</p><p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200417065029.png" loading="lazy"></p><p>由于本人并不懂法，所以尽量少扯一些和法律有关的话题。关于与此案件相关的法律知识可以看一下这位知乎答主的回答.<a href="https://www.zhihu.com/question/388027206/answer/1156166701"><br>法的守夜人</a></p><hr><p>首先我认为百度维权确实没有错，然后再来瞎扯一些其他的：</p><p>这个所谓‘刘某’为了保护自己的隐私而报案，我对这一点十分怀疑，但也不敢乱猜测，总之都懂。<br>但是，他是怎么知道自己的隐私被pandownload泄露了呢？<br>首先刘某肯定用了pandownload这个软件，但是，百度网盘官方事后在微博上发帖时，为何对pandownload只字不提？只说配合配合警方调查？</p><p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200417070228.png" loading="lazy"></p><p>而且，本人也用过很长一段时间的pandownload，更有很多苦百度已久的人用过，为何其他人都没有隐私泄露的问题，偏偏是这个‘刘某’去直接报案？（当然也可能确实是有没被发现）</p><p>还有，隐私问题难道只是pandownload的锅？那么为什么度盘文件频频被删，度盘搜索比比皆是？<br><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200417073951.png" loading="lazy"></p><p>另外再看一下度盘官方微博那边</p><p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200417071411.png" loading="lazy"><br>（由于都是热评也没什么必要打码了，如果有什么不满请联系我更改）</p><p>与以往臭名昭著的控评微博不同，这次微博中的评论几乎都占位一致，更有很多暴躁老哥破口大骂‘垃圾软件流氓企业’。</p><blockquote><p>“我求求你别在追查pandownload了行吗？我用了百度网盘三年，30块钱的会员，我开了三年。食堂钱开没了，钱包被我开垮了，现在好不容易有了免费盘。你们非说它侵犯隐私。那盘侵不侵犯隐私我们能不知道吗？”　　<br>“那制作者四年才受捐30万，制作者根本不挣钱。谁家能不下载个文件？你就能保证你这一辈子不下载吗？你把他抓走了，我们都得被限速。我不想限速，我想满速下载，行吗？”</p></blockquote><p>诚然，相比较其他网盘，百度网盘能提供很大的免费存储空间，并且具有相对很人性化的分享和转存功能。然而，事实上百度网盘只能存不能取，不开会员只能无奈地看着满盘资源。<em>（据说开了会员一样限速）</em></p><hr><p>百度的各种流氓行为众人皆知，自从谷歌退出中国，百度一家独大，便开始了它的垄断之路。百度公司的产品的用户体验越来越差，百度搜索引擎不如叫做‘营销号搜索’‘广告搜索’；百度贴吧出各种意想不到的收费服务，甚至拍卖贴吧吧主位置；百度网盘更是越来越黑心…</p><p>毫不重视用户体验，毫不尊重用户内容，这样的公司又有什么理由值得用户去付费支持？</p><p>倘若国内以后有这样一款网盘：它免费空间不大，但是不限速，没有离谱的广告，能分享和转存资源，并且不会乱删文件，且有很大的用户基数。那么我一定会为这样的网盘充值，但可能国内这样的网盘只是在梦里。</p><p>除了pandownload，还有很多类似的度盘下载器，百度此举可能还要有打个警告的目的。但是，如果度盘不做出改善，相信以后还会有更多的此类软件。</p><p>不说了，百度seo估计要针对我了，但我本来也没多大指望百度会收录</p><p><img src="https://cdn.jsdelivr.net/gh/voidoath/photo/blog-img/20200417100236.png" loading="lazy"></p>]]></content>
+    
+    
+    <summary type="html">众人苦百度久矣</summary>
+    
+    
+    
+    <category term="日常" scheme="http://krau.top/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+    <category term="杂谈" scheme="http://krau.top/tags/%E6%9D%82%E8%B0%88/"/>
     
   </entry>
   
